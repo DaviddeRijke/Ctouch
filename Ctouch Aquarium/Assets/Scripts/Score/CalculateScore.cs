@@ -92,6 +92,8 @@ public class CalculateScore : MonoBehaviour
                     averageBacklightByHour = new List<int>();
 
                     averageBacklight.Add(average);
+
+                    scoreData.averageBacklightUsage = averageBacklight;
                 }
                 averageBacklightByHour.Add(data.timeStamps[i].settings.backlight);
 

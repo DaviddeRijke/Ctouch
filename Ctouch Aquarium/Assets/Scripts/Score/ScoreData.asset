@@ -12,5 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4a63ef77ad11e24c83712227e22ea8c, type: 3}
   m_Name: ScoreData
   m_EditorClassIdentifier: 
-  score: 222
-  lastTimeStamp: 15-12-2020 19:34:00
+  score: 1114
+  lastTimeStamp: 4-1-2021 09:34:00
+  lastAverage: 50
+  averageBacklightUsage:
+  - 0
+  - 50
+  - 100
