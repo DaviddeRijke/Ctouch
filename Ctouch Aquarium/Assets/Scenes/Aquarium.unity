@@ -2833,7 +2833,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cleanColor: {r: 1, g: 1, b: 1, a: 1}
   dirtyColor: {r: 0.5999911, g: 0.9150943, b: 0.6265261, a: 1}
-  startPollution: 0.5
+  startPollution: 1
+  startGoops: 5
   maxGoops: 10
   GoopPrefab: {fileID: 4298057135859947822, guid: 777484e913cbe354d92bfc64d31655d6, type: 3}
   lights:
