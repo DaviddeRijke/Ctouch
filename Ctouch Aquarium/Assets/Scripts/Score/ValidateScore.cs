@@ -12,6 +12,8 @@ public class ValidateScore : MonoBehaviour
     private int AverageTreshold = 60;
     [SerializeField]
     private int ChangeInAverageTreshold = 20;
+    [SerializeField]
+    private SharkManager sharkManager;
 
     private DateTime lastTimeStamp;
 
@@ -45,11 +47,13 @@ public class ValidateScore : MonoBehaviour
             if(average - ChangeInAverageTreshold >= scoreData.lastAverage)
             {
                 //spawngoo
+                sharkManager.SpawnNewShark();
             }
 
             if(average >= AverageTreshold)
             {
                 //spawngoo
+                sharkManager.SpawnNewShark();
             }
 
             scoreData.lastAverage = average;
