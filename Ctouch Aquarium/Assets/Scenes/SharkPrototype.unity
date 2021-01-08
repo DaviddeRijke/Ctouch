@@ -394,9 +394,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sharkPrefab: {fileID: 1276205554959560, guid: 110b86501fff2414186f46873d54d1ea, type: 3}
-  spawnChange: 1
+  spawnChange: 5
   eatRate: 1
-  shark: {fileID: 11400000, guid: b60306aef1902194bb108741bcad9802, type: 2}
 --- !u!4 &578375057
 Transform:
   m_ObjectHideFlags: 0

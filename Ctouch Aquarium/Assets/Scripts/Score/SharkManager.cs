@@ -12,13 +12,15 @@ public class SharkManager : MonoBehaviour
     private int spawnChange = 1;
     [SerializeField]
     private int eatRate = 1;
-    [SerializeField]
+
     private Shark shark;
-    
     private GameObject sharkObject;
 
     public void Start()
     {
+        shark = new Shark();
+        shark.LoadShark();
+
         if (shark.isAlive)
         {
             sharkObject = Instantiate(sharkPrefab, new Vector3(0, 0, 0), Quaternion.identity);
@@ -41,7 +43,8 @@ public class SharkManager : MonoBehaviour
         {
             sharkObject = Instantiate(sharkPrefab, new Vector3(0, 0, 0), Quaternion.identity);
             shark.isAlive = true;
-            shark.spawnTime = DateTime.Now;
+            shark.spawnTime = DateTime.Now.ToString();
+            shark.SaveShark();
         }
     }
 
@@ -49,10 +52,10 @@ public class SharkManager : MonoBehaviour
     /// shark eats fish
     /// </summary>
     /// <param name="fish"></param>
-    public void EatFish(GameObject[] fish)
+    public void EatFish(string[] fish)
     {
         DateTime currentTime = DateTime.Now;
-        int duration = (currentTime.Subtract(shark.spawnTime)).Hours;
+        int duration = (currentTime.Subtract(DateTime.Parse(shark.spawnTime, null, System.Globalization.DateTimeStyles.RoundtripKind))).Hours;
 
         if (duration >= shark.hoursAlive + eatRate)
         {
@@ -63,6 +66,8 @@ public class SharkManager : MonoBehaviour
             //todo remove fish from aquarium
 
             shark.hoursAlive = duration;
+
+            shark.SaveShark();
         }
     }
 
@@ -84,5 +89,7 @@ public class SharkManager : MonoBehaviour
             shark.hoursAlive = 0;
             Destroy(sharkObject);
         }
+
+        shark.SaveShark();
     }
 }

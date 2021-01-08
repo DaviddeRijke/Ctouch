@@ -36,4 +36,34 @@ public static class SaveSystem
             return null;
         }
     }
+    public static void SaveShark(Shark shark)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/shark.data";
+        FileStream stream = new FileStream(path, FileMode.Create);
+
+        SharkData sharkData = new SharkData(shark);
+
+        formatter.Serialize(stream, sharkData);
+        stream.Close();
+    }
+
+    public static SharkData LoadShark()
+    {
+        string path = Application.persistentDataPath + "/shark.data";
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+
+            SharkData sharkData = formatter.Deserialize(stream) as SharkData;
+            stream.Close();
+
+            return sharkData;
+        }
+        else
+        {
+            return null;
+        }
+    }
 }
