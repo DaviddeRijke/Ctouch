@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class JSONParser : MonoBehaviour
 {
     [SerializeField]
-    private ScoreData scoreData;
+    public Score scoreData;
 
     private string fileName = "DisplayLog_2020-12-14.log";
     private List<string> files = new List<string>();
@@ -22,7 +22,7 @@ public class JSONParser : MonoBehaviour
     /// </summary>
     public Data LoadJson()
     {
-        DateTime lastDate = DateTime.Parse(scoreData.lastTimeStamp, null, System.Globalization.DateTimeStyles.RoundtripKind);
+        //DateTime lastDate = DateTime.Parse(scoreData.lastTimeStamp, null, System.Globalization.DateTimeStyles.RoundtripKind);
         data = new Data();
         SetFileNameList();
 

@@ -15,7 +15,7 @@ public class CalculateScore : MonoBehaviour
     [SerializeField]
     private JSONParser JSONParser;
     [SerializeField]
-    private ScoreData scoreData;
+    private ScoreObject scoreData;
     [SerializeField]
     private AnimationCurve scoreCurve;
     [SerializeField]
@@ -27,10 +27,13 @@ public class CalculateScore : MonoBehaviour
 
     private List<double> averageBacklight = new List<double>();
     private Data data;
+    private Score score;
 
     // Start is called before the first frame update
     void Start()
     {
+        score = new Score();
+
         //update score every hour;
         InvokeRepeating("UpdateScore", 0f, 3600f);
     }
@@ -50,6 +53,7 @@ public class CalculateScore : MonoBehaviour
         CalculateOffTimeScore();
         AveragePerHour(data);
         AddScore(CalculateNewScore());
+        SaveData();
 
         //print out average backlight per hour
         StringBuilder sb = new StringBuilder();
@@ -59,7 +63,7 @@ public class CalculateScore : MonoBehaviour
         }
         text.text = sb.ToString();
 
-        scoreText.text = "Score: " + scoreData.score.ToString();
+        scoreText.text = "Score: " + score.score.ToString();
     }
 
     /// <summary>
@@ -67,7 +71,15 @@ public class CalculateScore : MonoBehaviour
     /// </summary>
     public void GetData()
     {
+        score.LoadScore();
+
+        JSONParser.scoreData = score;
         data = JSONParser.LoadJson();
+    }
+
+    public void SaveData()
+    {
+        score.SaveScore();
     }
 
     /// <summary>
@@ -77,7 +89,7 @@ public class CalculateScore : MonoBehaviour
     {
         List<int> averageBacklightByHour = new List<int>();
         averageBacklight = new List<double>();
-        DateTime lastDate = DateTime.Parse(scoreData.lastTimeStamp, null, System.Globalization.DateTimeStyles.RoundtripKind);
+        DateTime lastDate = DateTime.Parse(score.lastTimeStamp, null, System.Globalization.DateTimeStyles.RoundtripKind);
         int previousHour = lastDate.Hour;
         int previousDay = lastDate.Day;
 
@@ -93,7 +105,7 @@ public class CalculateScore : MonoBehaviour
 
                     averageBacklight.Add(average);
 
-                    scoreData.averageBacklightUsage = averageBacklight;
+                    score.averageBacklightUsage = averageBacklight;
                 }
                 averageBacklightByHour.Add(data.timeStamps[i].settings.backlight);
 
@@ -105,7 +117,7 @@ public class CalculateScore : MonoBehaviour
         //get last timestamp and substract 1 hour
         DateTime newLastTimeStamp = data.timeStamps[data.timeStamps.Length - 1].dateTime.AddHours(-1);
         //set last timestamp from past hour
-        scoreData.lastTimeStamp = newLastTimeStamp.ToString();
+        score.lastTimeStamp = newLastTimeStamp.ToString();
     }
 
     /// <summary>
@@ -113,14 +125,14 @@ public class CalculateScore : MonoBehaviour
     /// </summary>
     private void CalculateSleepTimeScore()
     {
-        DateTime lastDate = DateTime.Parse(scoreData.lastTimeStamp, null, System.Globalization.DateTimeStyles.RoundtripKind);
+        DateTime lastDate = DateTime.Parse(score.lastTimeStamp, null, System.Globalization.DateTimeStyles.RoundtripKind);
         int previousDay = lastDate.Day;
 
         if (previousDay != DateTime.Now.Day)
         {
             if (!data.timeStamps[data.timeStamps.Length - 1].settings.sleepTime.Equals("Off"))
             {
-                scoreData.score += sleepTimeScore;
+                score.score += sleepTimeScore;
             }
         }
     }
@@ -149,7 +161,7 @@ public class CalculateScore : MonoBehaviour
                     newScore = 6 * offTimeScore;
                 }
 
-                scoreData.score += newScore;
+                score.score += newScore;
             }
         }
     }
@@ -160,23 +172,23 @@ public class CalculateScore : MonoBehaviour
     /// <returns></returns>
     private float CalculateNewScore()
     {
-        float score = 0;
+        float points = 0;
 
         foreach (float averageBacklight in averageBacklight)
         {
             float newScore = 0;
             newScore = scoreCurve.Evaluate(averageBacklight / 100);
-            score += (newScore * 10);
+            points += (newScore * 10);
         }
 
-        return score;
+        return points;
     }
 
     /// <summary>
     /// adds score locally
     /// </summary>
-    private void AddScore(float score)
+    private void AddScore(float points)
     {
-        scoreData.score += score;
+        score.score += points;
     }
 }
