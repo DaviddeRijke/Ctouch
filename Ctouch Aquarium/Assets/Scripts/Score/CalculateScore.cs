@@ -15,7 +15,7 @@ public class CalculateScore : MonoBehaviour
     [SerializeField]
     private JSONParser JSONParser;
     [SerializeField]
-    private ScoreObject scoreData;
+    private ScoreData scoreData;
     [SerializeField]
     private AnimationCurve scoreCurve;
     [SerializeField]

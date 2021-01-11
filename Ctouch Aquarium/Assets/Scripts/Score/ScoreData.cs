@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 [CreateAssetMenu(fileName = "ScoreData", menuName = "Score")]
 public class ScoreData : ScriptableObject
 {
@@ -10,4 +11,12 @@ public class ScoreData : ScriptableObject
 
     public double lastAverage = 0;
     public List<double> averageBacklightUsage = new List<double>();
+
+    public ScoreData(Score score)
+    {
+        this.score = score.score;
+        lastTimeStamp = score.lastTimeStamp;
+        lastAverage = score.lastAverage;
+        averageBacklightUsage = score.averageBacklightUsage;
+    }
 }

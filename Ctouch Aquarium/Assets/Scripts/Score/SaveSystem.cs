@@ -12,13 +12,13 @@ public static class SaveSystem
         string path = Application.persistentDataPath + "/score.data";
         FileStream stream = new FileStream(path, FileMode.Create);
 
-        ScoreObject score = new ScoreObject(scoreData);
+        ScoreData score = new ScoreData(scoreData);
 
         formatter.Serialize(stream, score);
         stream.Close();
     }
 
-    public static ScoreObject LoadScore()
+    public static ScoreData LoadScore()
     {
         string path = Application.persistentDataPath + "/score.data";
         if (File.Exists(path))
@@ -26,7 +26,7 @@ public static class SaveSystem
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
 
-            ScoreObject score = formatter.Deserialize(stream) as ScoreObject;
+            ScoreData score = formatter.Deserialize(stream) as ScoreData;
             stream.Close();
 
             return score;

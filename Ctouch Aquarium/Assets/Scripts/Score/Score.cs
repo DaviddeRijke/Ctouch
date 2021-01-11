@@ -17,7 +17,7 @@ public class Score : MonoBehaviour
 
     public void LoadScore()
     {
-        ScoreObject scoreData = SaveSystem.LoadScore();
+        ScoreData scoreData = SaveSystem.LoadScore();
         if (scoreData != null)
         {
             score = scoreData.score;
