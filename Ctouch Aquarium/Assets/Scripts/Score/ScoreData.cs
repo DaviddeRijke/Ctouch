@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
 [CreateAssetMenu(fileName = "ScoreData", menuName = "Score")]
 public class ScoreData : ScriptableObject
 {

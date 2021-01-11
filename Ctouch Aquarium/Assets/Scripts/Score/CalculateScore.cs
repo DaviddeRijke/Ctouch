@@ -15,7 +15,7 @@ public class CalculateScore : MonoBehaviour
     [SerializeField]
     private JSONParser JSONParser;
     [SerializeField]
-    private ScoreData scoreData;
+    private ScoreData scoreObject;
     [SerializeField]
     private AnimationCurve scoreCurve;
     [SerializeField]
@@ -34,8 +34,8 @@ public class CalculateScore : MonoBehaviour
     {
         score = new Score();
 
-        //update score every hour;
-        InvokeRepeating("UpdateScore", 0f, 3600f);
+        //update score;
+        InvokeRepeating("UpdateScore", 0f, 60f);
     }
 
     /// <summary>

@@ -17,13 +17,13 @@ public class Score : MonoBehaviour
 
     public void LoadScore()
     {
-        ScoreData scoreData = SaveSystem.LoadScore();
-        if (scoreData != null)
+        ScoreObject score = SaveSystem.LoadScore();
+        if (score != null)
         {
-            score = scoreData.score;
-            lastTimeStamp = scoreData.lastTimeStamp;
-            lastAverage = scoreData.lastAverage;
-            averageBacklightUsage = scoreData.averageBacklightUsage;
+            this.score = score.score;
+            lastTimeStamp = score.lastTimeStamp;
+            lastAverage = score.lastAverage;
+            averageBacklightUsage = score.averageBacklightUsage;
         }
 
     }
