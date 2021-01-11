@@ -15,7 +15,7 @@ public class CalculateScore : MonoBehaviour
     [SerializeField]
     private JSONParser JSONParser;
     [SerializeField]
-    private ScoreData scoreObject;
+    private Score score;
     [SerializeField]
     private AnimationCurve scoreCurve;
     [SerializeField]
@@ -27,15 +27,15 @@ public class CalculateScore : MonoBehaviour
 
     private List<double> averageBacklight = new List<double>();
     private Data data;
-    private Score score;
+    //private Score score;
 
     // Start is called before the first frame update
     void Start()
     {
-        score = new Score();
+        //score = new Score();
 
         //update score;
-        InvokeRepeating("UpdateScore", 0f, 60f);
+        InvokeRepeating("UpdateScore", 0f, 10f);
     }
 
     /// <summary>
@@ -55,13 +55,18 @@ public class CalculateScore : MonoBehaviour
         AddScore(CalculateNewScore());
         SaveData();
 
+        PrintScore();
+    }
+
+    private void PrintScore()
+    {
         //print out average backlight per hour
-        StringBuilder sb = new StringBuilder();
-        foreach (float averageBacklight in averageBacklight)
-        {
-            sb.AppendLine(averageBacklight.ToString());
-        }
-        text.text = sb.ToString();
+        //StringBuilder sb = new StringBuilder();
+        //foreach (float averageBacklight in averageBacklight)
+        //{
+        //    sb.AppendLine(averageBacklight.ToString());
+        //}
+        //text.text = sb.ToString();
 
         scoreText.text = "Score: " + score.score.ToString();
     }

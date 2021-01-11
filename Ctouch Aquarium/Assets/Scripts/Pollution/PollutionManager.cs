@@ -23,8 +23,8 @@ namespace Pollution
 
         private void Start()
         {
-            SetPollution(startPollution);
-            CreateGoop(startGoops);
+            //SetPollution(startPollution);
+            //CreateGoop(startGoops);
         }
 
         /// <summary>

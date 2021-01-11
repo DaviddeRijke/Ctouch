@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pollution;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,13 +8,15 @@ using UnityEngine;
 public class ValidateScore : MonoBehaviour
 {
     [SerializeField]
-    private ScoreData scoreData;
+    private Score scoreData;
     [SerializeField]
     private int AverageTreshold = 60;
     [SerializeField]
     private int ChangeInAverageTreshold = 20;
     [SerializeField]
     private SharkManager sharkManager;
+    [SerializeField]
+    private PollutionManager pollutionManager;
 
     private DateTime lastTimeStamp;
 
@@ -23,7 +26,7 @@ public class ValidateScore : MonoBehaviour
         lastTimeStamp = DateTime.Parse(scoreData.lastTimeStamp, null, System.Globalization.DateTimeStyles.RoundtripKind);
 
         //check performance every hour;
-        InvokeRepeating("Validate", 0f, 3600f);
+        InvokeRepeating("Validate", 0f, 10f);
     }
 
     /// <summary>
@@ -31,9 +34,11 @@ public class ValidateScore : MonoBehaviour
     /// </summary>
     public void Validate()
     {
-        //return if score hasn't been updated in the current hour
+        lastTimeStamp = DateTime.Parse(scoreData.lastTimeStamp, null, System.Globalization.DateTimeStyles.RoundtripKind);
         DateTime timeStamp = DateTime.Now;
-        if(lastTimeStamp.Date == timeStamp.Date && lastTimeStamp.Hour == timeStamp.Hour)
+
+        //return if score hasn't been updated in the current hour
+        if(lastTimeStamp.Date == timeStamp.Date && lastTimeStamp.Hour == timeStamp.Hour -1)
         {
             return;
         }
@@ -46,13 +51,13 @@ public class ValidateScore : MonoBehaviour
 
             if(average - ChangeInAverageTreshold >= scoreData.lastAverage)
             {
-                //spawngoo
+                pollutionManager.CreateGoop(1);
                 sharkManager.SpawnNewShark();
             }
 
             if(average >= AverageTreshold)
             {
-                //spawngoo
+                pollutionManager.CreateGoop(1);
                 sharkManager.SpawnNewShark();
             }
 

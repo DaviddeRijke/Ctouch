@@ -12,6 +12,8 @@ public class SharkManager : MonoBehaviour
     private int spawnChange = 1;
     [SerializeField]
     private int eatRate = 1;
+    [SerializeField]
+    private BoidManager boidManager;
 
     private Shark shark;
     private GameObject sharkObject;
@@ -23,8 +25,17 @@ public class SharkManager : MonoBehaviour
 
         if (shark.isAlive)
         {
-            sharkObject = Instantiate(sharkPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+            sharkObject = Instantiate(sharkPrefab, new Vector3(0, 3, 0), Quaternion.identity);
+            sharkObject.GetComponent<SharkObjectScript>().SetSharkManager(this);
         }
+    }
+
+    /// <summary>
+    /// tap on shark
+    /// </summary>
+    private void OnMouseDown()
+    {
+        tapOnShark();
     }
 
     /// <summary>
@@ -41,7 +52,9 @@ public class SharkManager : MonoBehaviour
         //random change to spawn a shark
         if (Random.Range(0, spawnChange) == 0)
         {
-            sharkObject = Instantiate(sharkPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+            sharkObject = Instantiate(sharkPrefab, new Vector3(0, 3, 0), Quaternion.identity);
+            sharkObject.GetComponent<SharkObjectScript>().SetSharkManager(this);
+            boidManager.AddObject(sharkObject);
             shark.isAlive = true;
             shark.spawnTime = DateTime.Now.ToString();
             shark.SaveShark();
@@ -87,6 +100,7 @@ public class SharkManager : MonoBehaviour
         {
             shark.isAlive = false;
             shark.hoursAlive = 0;
+            boidManager.RemoveObject(sharkObject);
             Destroy(sharkObject);
         }
 
