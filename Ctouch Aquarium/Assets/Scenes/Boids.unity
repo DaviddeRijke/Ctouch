@@ -3024,7 +3024,7 @@ MonoBehaviour:
   cleanColor: {r: 1, g: 1, b: 1, a: 1}
   dirtyColor: {r: 0.5999911, g: 0.9150943, b: 0.6265261, a: 1}
   startPollution: 0.5
-  startGoops: 0
+  startGoops: 5
   maxGoops: 10
   GoopPrefab: {fileID: 4298057135859947822, guid: 777484e913cbe354d92bfc64d31655d6, type: 3}
   lights:
@@ -6919,7 +6919,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1855415499}
   m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 8.57, z: 2.5}
+  m_LocalPosition: {x: 0, y: 8.07, z: 2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 878274776}
