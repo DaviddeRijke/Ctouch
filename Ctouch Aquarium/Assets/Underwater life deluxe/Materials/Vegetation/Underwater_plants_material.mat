@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Underwater_plants_material
-  m_Shader: {fileID: 4800000, guid: 99134b1f0c27d54469a840832a28fadf, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: aad319d18e73b1248ae6ccabb5619fd7, type: 3}
   m_ShaderKeywords: _ALPHATEST_ON _NORMALMAP _WINDQUALITY_NONE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,6 +19,18 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_31453A55:
+        m_Texture: {fileID: 2800000, guid: 354385281f8d4154cb3545ef9cc380b4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_E3B5AFB1:
+        m_Texture: {fileID: 2800000, guid: 686d58a3cbff67f439b5974d6d584838, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_F8584853:
+        m_Texture: {fileID: 2800000, guid: 2fc450c6c12971943a4e739d94c5610d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 2800000, guid: 354385281f8d4154cb3545ef9cc380b4, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -68,6 +80,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_8E18B4B1: 0.3
+    - Vector1_CB9C180: 0.2
     - _AO: 0.95
     - _BaseLight: 0.878
     - _BillboardKwToggle: 0
@@ -98,6 +112,7 @@ Material:
     - _WindQuality: 0
     - _ZWrite: 1
     m_Colors:
+    - Vector2_7D691762: {r: 3, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _HueVariation: {r: 1, g: 0.5, b: 0, a: 0.1}
