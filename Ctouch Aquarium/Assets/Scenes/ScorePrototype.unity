@@ -4280,9 +4280,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9641c2fab04dcce40bb4809221f6b509, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sharkPrefab: {fileID: 1276205554959560, guid: 110b86501fff2414186f46873d54d1ea, type: 3}
+  sharkPrefab: {fileID: 1276206267851347}
   spawnChange: 5
   eatRate: 1
+  boidManager: {fileID: 1581573728}
 --- !u!4 &1005117623
 Transform:
   m_ObjectHideFlags: 0
@@ -8761,6 +8762,7 @@ GameObject:
   - component: {fileID: 1276206267851350}
   - component: {fileID: 1276206267851349}
   - component: {fileID: 1276206267851348}
+  - component: {fileID: 1276206267851351}
   m_Layer: 0
   m_Name: Great_white_shark_prefab
   m_TagString: Untagged
@@ -8840,6 +8842,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1276206267851351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276206267851347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22aa0694a9d99df4a8b0b6646d48e814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1276875882454722
 GameObject:
   m_ObjectHideFlags: 0

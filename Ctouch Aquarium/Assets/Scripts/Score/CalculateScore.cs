@@ -181,8 +181,8 @@ public class CalculateScore : MonoBehaviour
 
         foreach (float averageBacklight in averageBacklight)
         {
-            float newScore = 0;
-            newScore = scoreCurve.Evaluate(averageBacklight / 100);
+            int newScore = 0;
+            newScore = (int)scoreCurve.Evaluate(averageBacklight / 100);
             points += (newScore * 10);
         }
 

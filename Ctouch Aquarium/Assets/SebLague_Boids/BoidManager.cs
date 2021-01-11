@@ -18,6 +18,10 @@ public class BoidManager : MonoBehaviour {
 
     }
 
+    /// <summary>
+    /// add new boid from fish object to list
+    /// </summary>
+    /// <param name="fish"></param>
     public void AddObject(GameObject fish)
     {
         Boid newBoid = fish.GetComponent<Boid>();
@@ -25,6 +29,10 @@ public class BoidManager : MonoBehaviour {
         boids.Add(newBoid);
     }
 
+    /// <summary>
+    /// remove boid from fish object from list
+    /// </summary>
+    /// <param name="fish"></param>
     public void RemoveObject(GameObject fish)
     {
         boids.Remove(fish.GetComponent<Boid>());
