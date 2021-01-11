@@ -917,6 +917,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e08508ad3a4caa438b2479f6d5f3326, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreData: {fileID: 0}
   scoreData: {fileID: 66568500}
 --- !u!4 &1725002017
 Transform:
@@ -947,6 +948,11 @@ MonoBehaviour:
   text: {fileID: 2076575342}
   scoreText: {fileID: 1091982655}
   JSONParser: {fileID: 1725002016}
+  scoreData:
+    score: 0
+    lastTimeStamp: 
+    lastAverage: 0
+    averageBacklightUsage: []
   scoreObject: {fileID: 0}
   scoreCurve:
     serializedVersion: 2
