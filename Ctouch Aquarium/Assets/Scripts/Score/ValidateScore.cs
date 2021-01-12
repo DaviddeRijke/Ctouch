@@ -17,6 +17,8 @@ public class ValidateScore : MonoBehaviour
     private SharkManager sharkManager;
     [SerializeField]
     private PollutionManager pollutionManager;
+    [SerializeField]
+    private float updateTime = 10f;
 
     private DateTime lastTimeStamp;
 
@@ -26,7 +28,7 @@ public class ValidateScore : MonoBehaviour
         lastTimeStamp = DateTime.Parse(scoreData.lastTimeStamp, null, System.Globalization.DateTimeStyles.RoundtripKind);
 
         //check performance every hour;
-        InvokeRepeating("Validate", 0f, 10f);
+        InvokeRepeating("Validate", 0f, updateTime);
     }
 
     /// <summary>
@@ -61,6 +63,7 @@ public class ValidateScore : MonoBehaviour
                 sharkManager.SpawnNewShark();
             }
 
+            //scoreData.averageBacklightUsage = new List<double>();
             scoreData.lastAverage = average;
         }
     }

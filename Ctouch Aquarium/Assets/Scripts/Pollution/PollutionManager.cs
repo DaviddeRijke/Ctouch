@@ -51,7 +51,9 @@ namespace Pollution
             {
                 if (_goopCount + 1 > maxGoops) return; // too many goops
 
+                _goopCount++;
                 SpawnGoop();
+                SetPollution(_goopCount / 10);
             }
         }
 
@@ -66,9 +68,15 @@ namespace Pollution
                 Vector3 normal = hit.normal;
                 if (normal == Vector3.up) normal = transform.InverseTransformDirection(hit.transform.up);
 
-                Instantiate(GoopPrefab, hit.point, Quaternion.LookRotation(normal));
-                Debug.Log(hit.normal);
+                GameObject goop = Instantiate(GoopPrefab, hit.point, Quaternion.LookRotation(normal));
+                goop.GetComponent<Goop>().pollutionManager = this;
             }
+        }
+
+        public void RemoveGoop()
+        {
+            _goopCount--;
+            SetPollution(_goopCount /10);
         }
     }
 }

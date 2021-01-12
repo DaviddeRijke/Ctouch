@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pollution;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class Goop : MonoBehaviour
     [SerializeField] private Vector2 minMaxSize;
 
     private Coroutine coroutine;
+    public PollutionManager pollutionManager;
 
     private void Start() => coroutine = StartCoroutine(GooMove(1f));
 
@@ -63,6 +65,7 @@ public class Goop : MonoBehaviour
             yield return null;
         }
 
+        pollutionManager.RemoveGoop();
         Destroy(gameObject);
     }
 }

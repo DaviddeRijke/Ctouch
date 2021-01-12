@@ -619,7 +619,6 @@ GameObject:
   - component: {fileID: 189058014}
   - component: {fileID: 189058012}
   - component: {fileID: 189058015}
-  - component: {fileID: 189058013}
   - component: {fileID: 189058016}
   m_Layer: 0
   m_Name: ScoreManager
@@ -643,7 +642,7 @@ MonoBehaviour:
   text: {fileID: 0}
   scoreText: {fileID: 245667570}
   JSONParser: {fileID: 189058015}
-  score: {fileID: 189058013}
+  score: {fileID: 11400000, guid: 8ec616b271867c444a4da291bd9fcbf1, type: 2}
   scoreCurve:
     serializedVersion: 2
     m_Curve:
@@ -734,22 +733,7 @@ MonoBehaviour:
   sleepTimeScore: 30
   backlightMuteScore: 15
   offTimeScore: 20
---- !u!114 &189058013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 189058011}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 449cf3c3b6be84643bd8426e7d30aa38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  score: 0
-  lastTimeStamp: 2000-01-01T00:00:00+01:00
-  lastAverage: 0
-  averageBacklightUsage: []
+  updateTime: 10
 --- !u!4 &189058014
 Transform:
   m_ObjectHideFlags: 0
@@ -776,7 +760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e08508ad3a4caa438b2479f6d5f3326, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreData: {fileID: 189058013}
+  scoreData: {fileID: 11400000, guid: 8ec616b271867c444a4da291bd9fcbf1, type: 2}
 --- !u!114 &189058016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -789,11 +773,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7afbdf93adaee9d4c88879d25799faf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreData: {fileID: 189058013}
+  scoreData: {fileID: 11400000, guid: 8ec616b271867c444a4da291bd9fcbf1, type: 2}
   AverageTreshold: 60
   ChangeInAverageTreshold: 20
   sharkManager: {fileID: 1005117622}
   pollutionManager: {fileID: 736640256}
+  updateTime: 5
 --- !u!1001 &189465676
 PrefabInstance:
   m_ObjectHideFlags: 0

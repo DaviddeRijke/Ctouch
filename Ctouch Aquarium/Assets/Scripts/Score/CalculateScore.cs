@@ -24,6 +24,8 @@ public class CalculateScore : MonoBehaviour
     private float backlightMuteScore = 15;
     [SerializeField]
     private float offTimeScore = 20;
+    [SerializeField]
+    private float updateTime = 10f;
 
     private List<double> averageBacklight = new List<double>();
     private Data data;
@@ -35,7 +37,7 @@ public class CalculateScore : MonoBehaviour
         //score = new Score();
 
         //update score;
-        InvokeRepeating("UpdateScore", 0f, 10f);
+        InvokeRepeating("UpdateScore", 0f, updateTime);
     }
 
     /// <summary>
@@ -76,7 +78,11 @@ public class CalculateScore : MonoBehaviour
     /// </summary>
     public void GetData()
     {
-        score.LoadScore();
+        if (score == null)
+        {
+            score.LoadScore();
+        }
+
 
         JSONParser.scoreData = score;
         data = JSONParser.LoadJson();
@@ -118,6 +124,7 @@ public class CalculateScore : MonoBehaviour
                 previousDay = data.timeStamps[i].dateTime.Day;
             }
         }
+        score.averageBacklightUsage = averageBacklight;
 
         //get last timestamp and substract 1 hour
         DateTime newLastTimeStamp = data.timeStamps[data.timeStamps.Length - 1].dateTime.AddHours(-1);
@@ -151,7 +158,7 @@ public class CalculateScore : MonoBehaviour
         {
             DateTime lastDate = DateTime.Parse(data.timeStamps[i].timeStamp, null, System.Globalization.DateTimeStyles.RoundtripKind);
             DateTime secondLastDate = DateTime.Parse(data.timeStamps[i - 1].timeStamp, null, System.Globalization.DateTimeStyles.RoundtripKind);
-            
+
             float hours = (float)(lastDate - secondLastDate).TotalHours;
             if (hours >= 2)
             {
@@ -181,12 +188,12 @@ public class CalculateScore : MonoBehaviour
 
         foreach (float averageBacklight in averageBacklight)
         {
-            int newScore = 0;
-            newScore = (int)scoreCurve.Evaluate(averageBacklight / 100);
+            float newScore = 0;
+            newScore = scoreCurve.Evaluate(averageBacklight / 100);
             points += (newScore * 10);
         }
 
-        return points;
+        return (int)points;
     }
 
     /// <summary>
