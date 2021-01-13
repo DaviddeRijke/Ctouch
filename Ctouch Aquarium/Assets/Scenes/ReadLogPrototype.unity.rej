@@ -1,0 +1,9 @@
+diff a/Ctouch Aquarium/Assets/Scenes/ReadLogPrototype.unity b/Ctouch Aquarium/Assets/Scenes/ReadLogPrototype.unity	(rejected hunks)
+@@ -947,6 +947,7 @@
+   text: {fileID: 2076575342}
+   scoreText: {fileID: 1091982655}
+   JSONParser: {fileID: 1725002016}
++  scoreObject: {fileID: 0}
+   scoreCurve:
+     serializedVersion: 2
+     m_Curve:
