@@ -4,17 +4,15 @@ namespace FishData
 {
     public class Fish : MonoBehaviour
     {
-        [SerializeField] private string fishName;
+        public string fishName;
 
-        public string GetName() => fishName;
-
-        private void OnMouseDown() => ShowTooltip();
+        private void OnMouseUp() => ShowTooltip();
 
         private void ShowTooltip()
         {
             FishUI ui = FindObjectOfType<FishUI>();
             ui.gameObject.SetActive(true);
-            ui.Init(this);
+            ui.Open(this);
         }
     }
 }

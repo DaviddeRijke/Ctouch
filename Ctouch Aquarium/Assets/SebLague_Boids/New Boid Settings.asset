@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: New Boid Settings
   m_EditorClassIdentifier: 
   minSpeed: 0.3
-  maxSpeed: 1
-  perceptionRadius: 2.5
-  avoidanceRadius: 1
+  maxSpeed: 1.5
+  perceptionRadius: 0.5
+  avoidanceRadius: 0.3
   maxSteerForce: 3
   alignWeight: 1
-  cohesionWeight: 1
-  seperateWeight: 1
+  cohesionWeight: 0.1
+  seperateWeight: 5
   targetWeight: 1
   obstacleMask:
     serializedVersion: 2
