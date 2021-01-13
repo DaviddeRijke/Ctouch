@@ -1,30 +1,31 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(fileName= "Currency")]
-public class Currency : ScriptableObject
+namespace PrototypeShop
 {
-    public UnityEvent OnUpdate = new UnityEvent();
-
-    public float Value { get; private set; }
-
-    public void AddCurrency(float f)
+    [CreateAssetMenu(fileName= "Currency")]
+    public class Currency : ScriptableObject
     {
-        Value += f;
-        OnUpdate.Invoke();
-    }
+        public UnityEvent OnUpdate = new UnityEvent();
 
-    public void RemoveCurrency(float f)
-    {
-        Value -= f;
-        OnUpdate.Invoke();
-    }
+        public float Value { get; private set; }
 
-    public bool CanAfford(float price)
-    {
-        return Value >= price;
-    }
+        public void AddCurrency(float f)
+        {
+            Value += f;
+            OnUpdate.Invoke();
+        }
 
+        public void RemoveCurrency(float f)
+        {
+            Value -= f;
+            OnUpdate.Invoke();
+        }
+
+        public bool CanAfford(float price)
+        {
+            return Value >= price;
+        }
+
+    }
 }

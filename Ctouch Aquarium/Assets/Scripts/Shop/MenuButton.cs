@@ -1,9 +1,7 @@
-﻿using System;
-using UnityEditor.Experimental.GraphView;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace DefaultNamespace
+namespace Shop
 {
     [RequireComponent(typeof(Button))]
     public class MenuButton : MonoBehaviour

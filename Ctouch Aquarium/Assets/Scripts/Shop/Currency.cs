@@ -1,7 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace DefaultNamespace
+namespace Shop
 {
     [CreateAssetMenu(fileName = "resource")]
     public class Currency : ScriptableObject

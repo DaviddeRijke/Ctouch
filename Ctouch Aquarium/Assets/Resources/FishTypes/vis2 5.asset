@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: vis2 5
   m_EditorClassIdentifier: 
   price: 20
+  FishModelUID: a

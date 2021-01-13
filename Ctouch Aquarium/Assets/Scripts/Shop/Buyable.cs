@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace DefaultNamespace
+namespace Shop
 {
     public class Buyable : MonoBehaviour
     {
