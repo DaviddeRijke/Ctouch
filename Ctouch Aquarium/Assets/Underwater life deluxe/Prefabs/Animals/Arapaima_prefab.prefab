@@ -40,6 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4048691999080280}
   - component: {fileID: 95883958317373890}
+  - component: {fileID: 4775510357347309169}
   m_Layer: 0
   m_Name: Arapaima_prefab
   m_TagString: Untagged
@@ -82,6 +83,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4775510357347309169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107411160630964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07194ffbb43226941b09b49e8bf28c08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1144541222851592
 GameObject:
   m_ObjectHideFlags: 0
