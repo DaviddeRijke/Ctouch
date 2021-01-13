@@ -778,7 +778,7 @@ MonoBehaviour:
   ChangeInAverageTreshold: 20
   sharkManager: {fileID: 1005117622}
   pollutionManager: {fileID: 736640256}
-  updateTime: 5
+  updateTime: 10
 --- !u!1001 &189465676
 PrefabInstance:
   m_ObjectHideFlags: 0

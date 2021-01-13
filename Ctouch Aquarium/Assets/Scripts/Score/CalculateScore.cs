@@ -138,9 +138,10 @@ public class CalculateScore : MonoBehaviour
     private void CalculateSleepTimeScore()
     {
         DateTime lastDate = DateTime.Parse(score.lastTimeStamp, null, System.Globalization.DateTimeStyles.RoundtripKind);
-        int previousDay = lastDate.Day;
 
-        if (previousDay != DateTime.Now.Day)
+        DateTime newLastDate = data.timeStamps[data.timeStamps.Length -1].dateTime;
+
+        if (lastDate != DateTime.Now && newLastDate.Date > lastDate.Date)
         {
             if (!data.timeStamps[data.timeStamps.Length - 1].settings.sleepTime.Equals("Off"))
             {
