@@ -757,6 +757,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Landscape_rock2_prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 1065021951618620, guid: 85c8845311a8cd74c95476a86b08dd3a, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4426465940189474, guid: 85c8845311a8cd74c95476a86b08dd3a, type: 3}
       propertyPath: m_RootOrder
       value: 45
@@ -2548,6 +2552,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Landscape_rock2_prefab (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1065021951618620, guid: 85c8845311a8cd74c95476a86b08dd3a, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4426465940189474, guid: 85c8845311a8cd74c95476a86b08dd3a, type: 3}
       propertyPath: m_RootOrder
       value: 75
@@ -2783,6 +2791,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishName: Bas
+  thoughtData:
+  - <color=#bd1e41>"Oh nee een enge haai!"
+  - '"Wat is het water vies..."'
 --- !u!1001 &635393920
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3525,6 +3536,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Landscape_rocks_small_prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 1091341454777572, guid: 005549c911025b64f84ab6ac9d8a62d6, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4267327587920038, guid: 005549c911025b64f84ab6ac9d8a62d6, type: 3}
       propertyPath: m_RootOrder
       value: 47
@@ -3661,6 +3676,10 @@ PrefabInstance:
     - target: {fileID: 1267507518752182, guid: 76fbea546548f23438a333331a23f9e9, type: 3}
       propertyPath: m_Name
       value: Oyster_prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1267507518752182, guid: 76fbea546548f23438a333331a23f9e9, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4048131036460956, guid: 76fbea546548f23438a333331a23f9e9, type: 3}
       propertyPath: m_RootOrder
@@ -3857,7 +3876,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 791
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -3879,7 +3898,8 @@ Transform:
   m_LocalRotation: {x: 0.043619405, y: 0, z: 0, w: 0.9990483}
   m_LocalPosition: {x: 0.078, y: 3.16, z: -6.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1674543068}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 5, y: 0, z: 0}
@@ -3899,7 +3919,8 @@ MonoBehaviour:
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
-  m_Cameras: []
+  m_Cameras:
+  - {fileID: 1674543065}
   m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
@@ -4343,6 +4364,98 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 882433912644389010, guid: a6a929623f40acf42b7b7564df72517e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 882433912644389010, guid: a6a929623f40acf42b7b7564df72517e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 882433912644389010, guid: a6a929623f40acf42b7b7564df72517e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 882433912644389010, guid: a6a929623f40acf42b7b7564df72517e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 882433912644389010, guid: a6a929623f40acf42b7b7564df72517e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2236029729721265551, guid: a6a929623f40acf42b7b7564df72517e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2236029729721265551, guid: a6a929623f40acf42b7b7564df72517e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2236029729721265551, guid: a6a929623f40acf42b7b7564df72517e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2236029729721265551, guid: a6a929623f40acf42b7b7564df72517e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2236029729721265551, guid: a6a929623f40acf42b7b7564df72517e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782856858670181974, guid: a6a929623f40acf42b7b7564df72517e, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.3254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782856858670181974, guid: a6a929623f40acf42b7b7564df72517e, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.4745098
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782856858670181974, guid: a6a929623f40acf42b7b7564df72517e, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.7058824
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782856858670181974, guid: a6a929623f40acf42b7b7564df72517e, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4283660724
+      objectReference: {fileID: 0}
+    - target: {fileID: 7024511357161192937, guid: a6a929623f40acf42b7b7564df72517e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7024511357161192937, guid: a6a929623f40acf42b7b7564df72517e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7024511357161192937, guid: a6a929623f40acf42b7b7564df72517e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7024511357161192937, guid: a6a929623f40acf42b7b7564df72517e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7024511357161192937, guid: a6a929623f40acf42b7b7564df72517e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8188768962536486530, guid: a6a929623f40acf42b7b7564df72517e, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.3254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 8188768962536486530, guid: a6a929623f40acf42b7b7564df72517e, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.4745098
+      objectReference: {fileID: 0}
+    - target: {fileID: 8188768962536486530, guid: a6a929623f40acf42b7b7564df72517e, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.7058824
+      objectReference: {fileID: 0}
+    - target: {fileID: 8188768962536486530, guid: a6a929623f40acf42b7b7564df72517e, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4283660724
+      objectReference: {fileID: 0}
     - target: {fileID: 8726077419658725372, guid: a6a929623f40acf42b7b7564df72517e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4413,7 +4526,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8726077419658725372, guid: a6a929623f40acf42b7b7564df72517e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -3
+      value: -3.11
       objectReference: {fileID: 0}
     - target: {fileID: 8726077419658725372, guid: a6a929623f40acf42b7b7564df72517e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5412,6 +5525,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Landscape_rock_large_prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 1667993318007270, guid: 947d9e46a587d9443a4ba4e6f1d7fe14, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4167463259448692, guid: 947d9e46a587d9443a4ba4e6f1d7fe14, type: 3}
       propertyPath: m_RootOrder
       value: 48
@@ -5533,6 +5650,10 @@ PrefabInstance:
     - target: {fileID: 1429230523441952, guid: 2a2f9a2cf66283145a0385e7c6764839, type: 3}
       propertyPath: m_Name
       value: Landscape_rcok5_prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1429230523441952, guid: 2a2f9a2cf66283145a0385e7c6764839, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4479241999632774, guid: 2a2f9a2cf66283145a0385e7c6764839, type: 3}
       propertyPath: m_RootOrder
@@ -5700,6 +5821,10 @@ PrefabInstance:
     - target: {fileID: 1694061628661546, guid: 516297390df3ed8418567a6788a822e7, type: 3}
       propertyPath: m_Name
       value: Underwater_rock1_prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694061628661546, guid: 516297390df3ed8418567a6788a822e7, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4957556447111102, guid: 516297390df3ed8418567a6788a822e7, type: 3}
       propertyPath: m_RootOrder
@@ -6661,6 +6786,112 @@ Transform:
   m_Father: {fileID: 1807086264}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1674543064
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1674543068}
+  - component: {fileID: 1674543065}
+  - component: {fileID: 1674543066}
+  m_Layer: 0
+  m_Name: UI Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!20 &1674543065
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674543064}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 32
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!114 &1674543066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674543064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 0
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 1
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+--- !u!4 &1674543068
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674543064}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 838293941}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1675121259
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6671,6 +6902,10 @@ PrefabInstance:
     - target: {fileID: 1376602650592626, guid: 26a1ad0c1cd5cd940b741103f87e20c3, type: 3}
       propertyPath: m_Name
       value: Underwater_rock2_prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1376602650592626, guid: 26a1ad0c1cd5cd940b741103f87e20c3, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4733109374701496, guid: 26a1ad0c1cd5cd940b741103f87e20c3, type: 3}
       propertyPath: m_RootOrder
@@ -7725,7 +7960,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1855415499}
   m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 8.07, z: 2.5}
+  m_LocalPosition: {x: 0, y: 6.8199997, z: 2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 878274776}
@@ -7865,6 +8100,10 @@ PrefabInstance:
     - target: {fileID: 1091341454777572, guid: 005549c911025b64f84ab6ac9d8a62d6, type: 3}
       propertyPath: m_Name
       value: Landscape_rocks_small_prefab (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1091341454777572, guid: 005549c911025b64f84ab6ac9d8a62d6, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4267327587920038, guid: 005549c911025b64f84ab6ac9d8a62d6, type: 3}
       propertyPath: m_RootOrder
@@ -8257,6 +8496,10 @@ PrefabInstance:
     - target: {fileID: 1799631033658262, guid: 37e8d66cc11b5844384ff6e90c8eeb2b, type: 3}
       propertyPath: m_Name
       value: Landscape_rock8_prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1799631033658262, guid: 37e8d66cc11b5844384ff6e90c8eeb2b, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4500565194433056, guid: 37e8d66cc11b5844384ff6e90c8eeb2b, type: 3}
       propertyPath: m_RootOrder
@@ -8839,6 +9082,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishName: Jim
+  thoughtData:
+  - <color=#bd1e41>"Oh nee een enge haai!"
 --- !u!23 &1029735082611800
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9197,7 +9442,6 @@ GameObject:
   - component: {fileID: 1276206267851350}
   - component: {fileID: 1276206267851349}
   - component: {fileID: 1276206267851348}
-  - component: {fileID: 1276206267851351}
   m_Layer: 0
   m_Name: Great_white_shark_prefab
   m_TagString: Untagged
@@ -9277,19 +9521,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1276206267851351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1276206267851347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07194ffbb43226941b09b49e8bf28c08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fishName: Erik
 --- !u!1 &1276875882454722
 GameObject:
   m_ObjectHideFlags: 0
@@ -9732,6 +9963,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishName: Bubbles
+  thoughtData:
+  - <color=#48945a>"Die nieuwe vis is wel heel leuk"
+  - <color=#bd1e41>"Oh nee een enge haai!"
+  - '"Wat is het water vies..."'
 --- !u!1 &1566139837663341
 GameObject:
   m_ObjectHideFlags: 0
@@ -10146,6 +10381,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishName: Niels
+  thoughtData:
+  - <color=#48945a>"Die nieuwe vis is wel heel leuk"
+  - <color=#bd1e41>"Oh nee een enge haai!"
 --- !u!23 &1820574011141231
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10419,6 +10657,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishName: Bob
+  thoughtData:
+  - '"Wat is het water vies..."'
+  - <color=#48945a>"Die nieuwe vis is wel heel leuk"
+  - <color=#bd1e41>"Oh nee een enge haai!"
 --- !u!1 &1937638268912006
 GameObject:
   m_ObjectHideFlags: 0

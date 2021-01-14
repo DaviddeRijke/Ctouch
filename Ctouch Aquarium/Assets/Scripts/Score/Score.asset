@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Score
   m_EditorClassIdentifier: 
   score: 990
-  lastTimeStamp: 12-1-2021 09:34:00
+  lastTimeStamp: 11-1-2021 09:34:00
   lastAverage: 70
   averageBacklightUsage: []

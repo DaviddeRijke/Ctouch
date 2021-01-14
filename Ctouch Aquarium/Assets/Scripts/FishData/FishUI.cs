@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -13,10 +14,11 @@ namespace FishData
         // [SerializeField] private TMP_InputField nameField;
         [SerializeField] private TextMeshProUGUI nameText;
         [SerializeField] private Button editButton;
+        [SerializeField] private TextMeshProUGUI[] thoughtsFields;
 
         private Vector3 defaultPos;
 
-        private Fish fish;
+        private Fish _fish;
 
         private VirtualKeyboard keyboard = new VirtualKeyboard();
         private bool keyboardActive;
@@ -33,7 +35,7 @@ namespace FishData
         {
             if (transform.position != defaultPos)
             {
-                transform.position = fish.transform.position;
+                transform.position = _fish.transform.position;
 
                 if (keyboardActive)
                 {
@@ -47,7 +49,7 @@ namespace FishData
                 }
                 else
                 {
-                    nameText.text = fish.fishName;
+                    nameText.text = _fish.fishName;
                 }
 
                 if (Input.GetMouseButtonDown(0) &&
@@ -81,24 +83,26 @@ namespace FishData
         {
             keyboardActive = false;
             keyboard.HideTouchKeyboard();
-            fish.fishName = input;
+            _fish.fishName = input;
             Close();
         }
 
         public void Close()
         {
-            fish = null;
+            _fish = null;
             transform.position = defaultPos;
             Time.timeScale = 1f;
         }
 
         public void Open(Fish fish)
         {
+            _fish = fish;
             input = String.Empty;
-            this.fish = fish;
+            
             nameText.text = fish.fishName;
             Time.timeScale = .2f;
 
+            LoadThoughts(fish.GetThoughts());
 
             Vector3 boundSize = fish.GetComponentInChildren<SkinnedMeshRenderer>().bounds.size;
             Debug.Log(boundSize);
@@ -107,6 +111,12 @@ namespace FishData
 
             bubble.transform.localScale = Vector3.one * size;
             transform.position = fish.transform.position;
+        }
+
+        private void LoadThoughts(List<string> thoughts)
+        {
+            for (int i = 0; i < thoughtsFields.Length; i++) thoughtsFields[i].text = String.Empty;
+            for (int i = 0; i < thoughts.Count; i++) thoughtsFields[i].text = thoughts[i];
         }
     }
 }

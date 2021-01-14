@@ -1,19 +1,18 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using DefaultNamespace;
+using FishData;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class SharkManager : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject sharkPrefab;
-    [SerializeField]
-    private int spawnChange = 1;
-    [SerializeField]
-    private int eatRate = 1;
-    [SerializeField]
-    private BoidManager boidManager;
+    [SerializeField] private GameObject sharkPrefab;
+    [SerializeField] private int spawnChange = 1;
+    [SerializeField] private int eatRate = 1;
+    [SerializeField] private BoidManager boidManager;
 
     private Shark shark;
     private GameObject sharkObject;
@@ -58,6 +57,8 @@ public class SharkManager : MonoBehaviour
             shark.isAlive = true;
             shark.spawnTime = DateTime.Now.ToString();
             shark.SaveShark();
+
+            FishThoughts.MakeFishThink(FindObjectsOfType<Fish>().ToList(), FishThoughts.SharkArived);
         }
     }
 
@@ -68,7 +69,9 @@ public class SharkManager : MonoBehaviour
     public void EatFish(string[] fish)
     {
         DateTime currentTime = DateTime.Now;
-        int duration = (currentTime.Subtract(DateTime.Parse(shark.spawnTime, null, System.Globalization.DateTimeStyles.RoundtripKind))).Hours;
+        int duration =
+            (currentTime.Subtract(DateTime.Parse(shark.spawnTime, null,
+                System.Globalization.DateTimeStyles.RoundtripKind))).Hours;
 
         if (duration >= shark.hoursAlive + eatRate)
         {
@@ -102,6 +105,8 @@ public class SharkManager : MonoBehaviour
             shark.hoursAlive = 0;
             boidManager.RemoveObject(sharkObject);
             Destroy(sharkObject);
+
+            FishThoughts.MakeFishThink(FindObjectsOfType<Fish>().ToList(), FishThoughts.SharkLeft);
         }
 
         shark.SaveShark();

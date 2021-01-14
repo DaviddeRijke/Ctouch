@@ -1,4 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using DefaultNamespace;
+using FishData;
 using UnityEngine;
 
 namespace Pollution
@@ -55,7 +58,12 @@ namespace Pollution
                 SpawnGoop();
                 SetPollution(_goopCount / 10);
             }
+
+            FishThoughts.MakeFishThink(FindObjectsOfType<Fish>().ToList(), FishThoughts.PollutionWorse);
         }
+
+        [ContextMenu("GoopTest")]
+        public void GoopTest() => CreateGoop(1);
 
         private void SpawnGoop()
         {
@@ -76,7 +84,12 @@ namespace Pollution
         public void RemoveGoop()
         {
             _goopCount--;
-            SetPollution(_goopCount /10);
+            SetPollution(_goopCount / 10);
+
+            if (_goopCount > 0)
+                FishThoughts.MakeFishThink(FindObjectsOfType<Fish>().ToList(), FishThoughts.PollutionBetter);
+            else
+                FishThoughts.MakeFishThink(FindObjectsOfType<Fish>().ToList(), FishThoughts.PollutionPerfect);
         }
     }
 }
