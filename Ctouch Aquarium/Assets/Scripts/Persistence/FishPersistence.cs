@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using FishData;
 using Shop;
 using UnityEngine;
 
 namespace Persistence
 {
-    public class FishPersistence : MonoBehaviour
+    [CreateAssetMenu(fileName="Persistence")]
+    public class FishPersistence : ScriptableObject
     {
         public const string FishTypeDataFile = "/fishTypes.txt";
         public const string OwnedFishDataFile = "/ownedFish.txt";
@@ -37,21 +39,28 @@ namespace Persistence
             OnAddFish.Invoke(f);
         }
 
+        public void Save(Fish[] fishes)
+        {
+            
+        }
 
+        public void Reset()
+        {
+        }
 
         public void SaveOwnedFish()
         {
             Debug.Log("Saving " + OwnedFish.Count);
             var container = new ListContainer(OwnedFish);
             string json = JsonUtility.ToJson(container);
-            File.WriteAllText(Application.dataPath + OwnedFishDataFile, json);
+            File.WriteAllText(Application.persistentDataPath + OwnedFishDataFile, json);
         }
         
         public void LoadOwnedFish()
         {
             if (File.Exists(Application.dataPath + OwnedFishDataFile))
             {
-                string json = File.ReadAllText(Application.dataPath + OwnedFishDataFile);
+                string json = File.ReadAllText(Application.persistentDataPath + OwnedFishDataFile);
                 var container = JsonUtility.FromJson<ListContainer>(json);
                 OwnedFish = container.dataList;
                 Debug.Log("Loaded " + OwnedFish.Count);

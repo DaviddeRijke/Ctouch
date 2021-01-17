@@ -44,7 +44,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Persistence/FishDataEvent.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Shop/FishType.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Persistence/fishData.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Persistence/FishPersistence.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Score/JSONParser.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Score/CalculateScore.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Shop/ScoreLabel.cs" />
@@ -53,6 +52,9 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Shop/SpawnableFish.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Shop/Shop.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Shop/MenuButton.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Persistence/Editor/EditorSaveBehaviourEditor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Persistence/FishPersistence.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Persistence/EditorSaveBehaviour.cs" />
       </list>
     </option>
   </component>
@@ -96,6 +98,7 @@
       <option name="presentableId" value="Default" />
       <updated>1610364467285</updated>
       <workItem from="1610364471645" duration="8420000" />
+      <workItem from="1610923102938" duration="1116000" />
     </task>
     <servers />
   </component>
@@ -114,6 +117,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
