@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 449cf3c3b6be84643bd8426e7d30aa38, type: 3}
   m_Name: Score
   m_EditorClassIdentifier: 
-  score: 990
-  lastTimeStamp: 12-1-2021 09:34:00
+  score: 0
+  lastTimeStamp: 11-1-2021 09:34:00
   lastAverage: 70
   averageBacklightUsage: []

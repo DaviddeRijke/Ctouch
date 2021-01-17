@@ -12,27 +12,38 @@
           <e p="API.cs" t="Include" />
           <e p="API_asset.cs" t="Include" />
           <e p="APIrequest.cs" t="Include" />
-          <e p="JSONParser.cs" t="Include" />
+          <e p="FishData" t="Include">
+            <e p="Fish.cs" t="Include" />
+            <e p="FishUI.cs" t="Include" />
+          </e>
           <e p="New.cs" t="Include" />
           <e p="Persistence" t="Include">
             <e p="fishData.cs" t="Include" />
             <e p="FishDataEvent.cs" t="Include" />
             <e p="FishPersistence.cs" t="Include" />
           </e>
+          <e p="Pollution" t="Include">
+            <e p="Goop.cs" t="Include" />
+            <e p="PollutionManager.cs" t="Include" />
+          </e>
           <e p="PrototypeChangePlants" t="Include">
             <e p="ChangePlant.cs" t="Include" />
             <e p="InputUI.cs" t="Include" />
             <e p="SettingsManager.cs" t="Include" />
           </e>
-          <e p="PrototypeShop" t="Include">
-            <e p="Buyable.cs" t="Include" />
-            <e p="Currency.cs" t="Include" />
-            <e p="CurrencyUI.cs" t="Include" />
-            <e p="Store.cs" t="Include" />
-          </e>
           <e p="Score" t="Include">
             <e p="CalculateScore.cs" t="Include" />
-            <e p="ScoreData.cs" t="Include" />
+            <e p="JSONParser.cs" t="Include" />
+            <e p="SaveSystem.cs" t="Include" />
+            <e p="Score.cs" t="Include" />
+            <e p="ScoreObject.cs" t="Include" />
+            <e p="ValidateScore.cs" t="Include" />
+          </e>
+          <e p="Shark" t="Include">
+            <e p="Shark.cs" t="Include" />
+            <e p="SharkData.cs" t="Include" />
+            <e p="SharkManager.cs" t="Include" />
+            <e p="SharkObjectScript.cs" t="Include" />
           </e>
           <e p="Shop" t="Include">
             <e p="Buyable.cs" t="Include" />
@@ -40,11 +51,21 @@
             <e p="Currency.cs" t="Include" />
             <e p="FishType.cs" t="Include" />
             <e p="MenuButton.cs" t="Include" />
+            <e p="ScoreLabel.cs" t="Include" />
             <e p="Shop.cs" t="Include" />
             <e p="Spawn.cs" t="Include" />
             <e p="SpawnableFish.cs" t="Include" />
           </e>
           <e p="SimpleCameraController.cs" t="Include" />
+          <e p="VirtualKeyboard.cs" t="Include" />
+        </e>
+        <e p="SebLague_Boids" t="Include">
+          <e p="Boid.cs" t="Include" />
+          <e p="BoidCompute.compute" t="Include" />
+          <e p="BoidHelper.cs" t="Include" />
+          <e p="BoidManager.cs" t="Include" />
+          <e p="BoidSettings.cs" t="Include" />
+          <e p="Spawner.cs" t="Include" />
         </e>
         <e p="Simple UI" t="Include">
           <e p="Fonts" t="Include">

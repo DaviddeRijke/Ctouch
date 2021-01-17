@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 615efc720ae04c27bd1bde69e7ce0ff7, type: 3}
   m_Name: vis2 4
   m_EditorClassIdentifier: 
-  price: 20
-  FishModelUID: a
+  price: 80
+  FishModelUID: Vis

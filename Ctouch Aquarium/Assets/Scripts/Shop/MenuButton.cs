@@ -26,6 +26,7 @@ namespace Shop
                     Open();
                 }
             });
+            target.OnBuy.AddListener(Close);
         }
 
         void Open()
