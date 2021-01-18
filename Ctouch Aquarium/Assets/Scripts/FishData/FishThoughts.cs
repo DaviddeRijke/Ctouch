@@ -17,7 +17,7 @@ namespace FishData
         public static List<string> PollutionBetter = new List<string>(){
             "<color=#48945a>\"Het is nu echt een stuk frisser hier!\"",
             "<color=#48945a>\"Dankje, Het is weer wat schoner.\"",
-            "<color=#48945a>\"Goezo, dat vieze groene ding is weg!\"",
+            "<color=#48945a>\"Goed zo, dat vieze groene ding is weg!\"",
             "<color=#48945a>\"Het ziet er al weer een stuk beter uit hier.\""
         };
 

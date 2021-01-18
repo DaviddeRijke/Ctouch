@@ -23,9 +23,7 @@ namespace FishData
 
         public List<string> GetThoughts() => thoughts.ToList();
 
-        private void OnMouseUp() => ShowTooltip();
-
-        private void ShowTooltip()
+        public void ShowTooltip()
         {
             FishUI ui = FindObjectOfType<FishUI>();
             ui.gameObject.SetActive(true);

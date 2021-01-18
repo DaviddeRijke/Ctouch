@@ -15,7 +15,7 @@ public class Goop : MonoBehaviour
 
     private void Start() => coroutine = StartCoroutine(GooMove(1f));
 
-    private void OnMouseDown()
+    public void Remove()
     {
         StopCoroutine(coroutine);
         StartCoroutine(GooSplode(1f));
