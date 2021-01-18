@@ -58,7 +58,7 @@ public class SharkManager : MonoBehaviour
             shark.spawnTime = DateTime.Now.ToString();
             shark.SaveShark();
 
-            FishThoughts.MakeFishThink(FindObjectsOfType<Fish>().ToList(), FishThoughts.SharkArived);
+            FishThoughts.MakeFishThink(FindObjectsOfType<Fish>().ToList(), ThoughtEnum.SharkArived);
         }
     }
 
@@ -106,7 +106,7 @@ public class SharkManager : MonoBehaviour
             boidManager.RemoveObject(sharkObject);
             Destroy(sharkObject);
 
-            FishThoughts.MakeFishThink(FindObjectsOfType<Fish>().ToList(), FishThoughts.SharkLeft);
+            FishThoughts.MakeFishThink(FindObjectsOfType<Fish>().ToList(), ThoughtEnum.SharkLeft);
         }
 
         shark.SaveShark();

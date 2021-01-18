@@ -59,7 +59,7 @@ namespace Pollution
                 SetPollution(_goopCount / 10);
             }
 
-            FishThoughts.MakeFishThink(FindObjectsOfType<Fish>().ToList(), FishThoughts.PollutionWorse);
+            FishThoughts.MakeFishThink(FindObjectsOfType<Fish>().ToList(), ThoughtEnum.PollutionWorse);
         }
 
         [ContextMenu("GoopTest")]
@@ -87,9 +87,9 @@ namespace Pollution
             SetPollution(_goopCount / 10);
 
             if (_goopCount > 0)
-                FishThoughts.MakeFishThink(FindObjectsOfType<Fish>().ToList(), FishThoughts.PollutionBetter);
+                FishThoughts.MakeFishThink(FindObjectsOfType<Fish>().ToList(), ThoughtEnum.PollutionBetter);
             else
-                FishThoughts.MakeFishThink(FindObjectsOfType<Fish>().ToList(), FishThoughts.PollutionPerfect);
+                FishThoughts.MakeFishThink(FindObjectsOfType<Fish>().ToList(), ThoughtEnum.PollutionPerfect);
         }
     }
 }
