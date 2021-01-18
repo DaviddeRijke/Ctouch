@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using FishData;
+using FishDataFolder;
 using UnityEngine;
 
 public class AquariumClicker : MonoBehaviour
