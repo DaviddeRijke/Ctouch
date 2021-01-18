@@ -574,6 +574,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4595974128044952}
   - component: {fileID: 95312140731769110}
+  - component: {fileID: -2506292118549978883}
   m_Layer: 0
   m_Name: Black_redeye_fish_prefab
   m_TagString: Untagged
@@ -616,6 +617,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &-2506292118549978883
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829736499107408}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1847087750712092
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4048131036460956}
   - component: {fileID: 33463328168122774}
   - component: {fileID: 23468086886592872}
+  - component: {fileID: -1655445980484508265}
   m_Layer: 0
   m_Name: Oyster_prefab
   m_TagString: Untagged
@@ -81,3 +82,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &-1655445980484508265
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267507518752182}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.85678124, y: 0.9062232, z: 0.43374428}
+  m_Center: {x: 0.034789458, y: 0.0016889129, z: 0.18456276}
