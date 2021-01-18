@@ -10,9 +10,9 @@ namespace Persistence
     {
         public FishPersistence Persistence;
         private static string PathToPrefabFolder = "FishModels";
-        public GameObject wrapperPrefab;
+        public GameObject BoidPrefab;
 
-        private string[] staticNames = {"Hendrik-Jan", "Freddy", "Hans"};
+        public BoidManager BoidManager;
 
         public void SpawnFromSaveFile()
         {
@@ -21,17 +21,19 @@ namespace Persistence
             {
                 var loadedModel = Resources.Load($"{PathToPrefabFolder}/{f.ModelUID}", typeof(GameObject));
                 if(loadedModel == null) continue;
-                var wrapper = Instantiate(wrapperPrefab);
-                var fish = Instantiate(loadedModel as GameObject, wrapper.transform, false);
+                var boidContainer = Instantiate(BoidPrefab);
+                var fish = Instantiate(loadedModel as GameObject, boidContainer.transform);
                 fish.transform.position = f.LocalPosition;
                 fish.transform.rotation = f.LocalRotation;
                 var fComp = fish.AddComponent<Fish>();
                 fComp.fishName = f.Name;
                 fish.name = loadedModel.name;
                 var fn = fComp.fishName;
-                wrapper.name = fn;
-                wrapper.transform.position = f.Position;
-                wrapper.transform.rotation = f.Rotation;
+                boidContainer.name = fn;
+                var transform1 = boidContainer.transform;
+                transform1.position = f.Position;
+                transform1.rotation = f.Rotation;
+                BoidManager.AddObject(boidContainer);
             }
         }
     }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8846895102173992647}
   - component: {fileID: 8846895102173992664}
+  - component: {fileID: -6033769567860424931}
   m_Layer: 0
   m_Name: Persistence
   m_TagString: Untagged
@@ -44,3 +45,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Persistence: {fileID: 11400000, guid: 450c8726a8a0edb44a0f9a458821c4ec, type: 2}
+--- !u!114 &-6033769567860424931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8846895102173992665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de5b17d31dc34931aa541f87f44e0950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Persistence: {fileID: 11400000, guid: 450c8726a8a0edb44a0f9a458821c4ec, type: 2}
+  BoidPrefab: {fileID: 3657315153149465772, guid: c399b68b8bba70543835f61c51db5e18, type: 3}
+  BoidManager: {fileID: 0}

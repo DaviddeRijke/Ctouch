@@ -21,19 +21,14 @@ namespace Persistence
         private void Awake()
         {
             OwnedFish = new List<FishData>();
-            OwnedFish.Add(new FishData(){ModelUID = "a", Name = "piet"});
-            //SaveOwnedFish();
-           //LoadOwnedFish();
         }
 
-
-
-        public void AddFish(FishType ft, string name)
+        public void AddFish(FishType ft, string fishName)
         {
             var f = new FishData()
             {
                 ModelUID = ft.FishModelUID,
-                Name = name
+                Name = fishName
             };
             OwnedFish.Add(f);
             OnAddFish.Invoke(f);
@@ -68,7 +63,7 @@ namespace Persistence
         public void SaveOwnedFish()
         {
             Debug.Log("Saving " + OwnedFish.Count);
-            var container = new ListContainer(OwnedFish);
+            var container = new ListContainer<FishData>(OwnedFish);
             string json = JsonUtility.ToJson(container);
             File.WriteAllText(Application.persistentDataPath + OwnedFishDataFile, json);
 #if UNITY_EDITOR
@@ -87,7 +82,7 @@ namespace Persistence
         {
             if (!File.Exists(Application.dataPath + OwnedFishDataFile)) return;
             string json = File.ReadAllText(Application.persistentDataPath + OwnedFishDataFile);
-            var container = JsonUtility.FromJson<ListContainer>(json);
+            var container = JsonUtility.FromJson<ListContainer<FishData>>(json);
             OwnedFish = container.dataList;
             Debug.Log("Loaded " + OwnedFish.Count);
         }
@@ -105,6 +100,7 @@ namespace Persistence
             return false;
         }
 
+        #region crud
         //removes first occurence of fish with given model
         public bool RemoveFishByModel(string model)
         {
@@ -143,5 +139,6 @@ namespace Persistence
         //         Debug.Log("fishType file not found");
         //     }
         //}
+        #endregion
     }
 }

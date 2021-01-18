@@ -35,11 +35,11 @@ namespace Persistence
         }
     }
 
-    public struct ListContainer
+    public struct ListContainer<T>
     {
-        public List<FishData> dataList;
+        public List<T> dataList;
 
-        public ListContainer(List<FishData> _dataList)
+        public ListContainer(List<T> _dataList)
         {
             dataList = _dataList;
         }

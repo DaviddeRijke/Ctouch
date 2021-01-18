@@ -13,6 +13,7 @@ namespace Shop
                 
                 public List<Buyable> Load()
                 {
+
                         var res = Resources.LoadAll<FishType>(PathToFolder);
                         var ps = new List<Buyable>();
                         foreach (var fishType in res)
@@ -21,6 +22,20 @@ namespace Shop
                                 p.Type = fishType;
                                 ps.Add(p);
                         }
+                        return ps;
+                }
+
+                public List<Buyable> Load2()
+                {
+                        var res2 = FishTypePricePairExtensions.LoadFishTypePricePairs();
+
+                        var ps = new List<Buyable>();
+                        foreach (var ftpp in res2)
+                        {
+                                var p = Instantiate(Prefab, Parent);
+                                //p
+                        }
+
                         return ps;
                 }
         }
