@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -56,7 +57,6 @@ public class CalculateScore : MonoBehaviour
         AveragePerHour(data);
         AddScore(CalculateNewScore());
         SaveData();
-
         PrintScore();
     }
 

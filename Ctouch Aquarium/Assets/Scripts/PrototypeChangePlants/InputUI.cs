@@ -1,21 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class InputUI : MonoBehaviour
+namespace PrototypeChangePlants
 {
-    private double average;
-    
-    [SerializeField]
-    private InputField input;
-
-    [SerializeField]
-    private SettingsManager settingsManager;
-
-    public void AddAverage(string value)
+    public class InputUI : MonoBehaviour
     {
-        average = double.Parse(input.text);
-        settingsManager.AddAverageBacklightPerHour(average);
+        private double average;
+    
+        [SerializeField]
+        private InputField input;
+
+        [SerializeField]
+        private SettingsManager settingsManager;
+
+        public void AddAverage(string value)
+        {
+            average = double.Parse(input.text);
+            settingsManager.AddAverageBacklightPerHour(average);
+        }
     }
 }
