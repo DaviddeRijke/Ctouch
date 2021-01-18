@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using FishData;
+using FishDataFolder;
 using Shop;
 using UnityEngine;
 
@@ -24,9 +22,11 @@ namespace Persistence
         {
             OwnedFish = new List<FishData>();
             OwnedFish.Add(new FishData(){ModelUID = "a", Name = "piet"});
-            SaveOwnedFish();
-            LoadOwnedFish();
+            //SaveOwnedFish();
+           //LoadOwnedFish();
         }
+
+
 
         public void AddFish(FishType ft, string name)
         {
@@ -39,13 +39,30 @@ namespace Persistence
             OnAddFish.Invoke(f);
         }
 
-        public void Save(Fish[] fishes)
+        public void SaveUnsavedFishInScene(Fish[] fishes)
         {
-            
+            foreach (Fish f in fishes)
+            {
+                OwnedFish.Add(new FishData(f));
+            }
+            SaveOwnedFish();
         }
 
-        public void Reset()
+        public void ResetOwnedFish()
         {
+            OwnedFish.Clear();
+        }
+
+        public void ResetSaveFile()
+        {
+            if (File.Exists(Application.persistentDataPath + OwnedFishDataFile))
+            {
+                File.Delete(Application.persistentDataPath + OwnedFishDataFile);
+#if UNITY_EDITOR
+                Debug.Log("file removed");
+                UnityEditor.AssetDatabase.Refresh();
+#endif
+            }
         }
 
         public void SaveOwnedFish()
@@ -54,21 +71,25 @@ namespace Persistence
             var container = new ListContainer(OwnedFish);
             string json = JsonUtility.ToJson(container);
             File.WriteAllText(Application.persistentDataPath + OwnedFishDataFile, json);
+#if UNITY_EDITOR
+            Debug.Log(Application.persistentDataPath);
+            UnityEditor.AssetDatabase.Refresh();
+#endif
+        }
+        
+        public FishData[] Load()
+        {
+            LoadOwnedFish();
+            return OwnedFish.ToArray();
         }
         
         public void LoadOwnedFish()
         {
-            if (File.Exists(Application.dataPath + OwnedFishDataFile))
-            {
-                string json = File.ReadAllText(Application.persistentDataPath + OwnedFishDataFile);
-                var container = JsonUtility.FromJson<ListContainer>(json);
-                OwnedFish = container.dataList;
-                Debug.Log("Loaded " + OwnedFish.Count);
-            }
-            else
-            {
-                Debug.Log("ownedFish file not found");
-            }
+            if (!File.Exists(Application.dataPath + OwnedFishDataFile)) return;
+            string json = File.ReadAllText(Application.persistentDataPath + OwnedFishDataFile);
+            var container = JsonUtility.FromJson<ListContainer>(json);
+            OwnedFish = container.dataList;
+            Debug.Log("Loaded " + OwnedFish.Count);
         }
 
         //removes first occurence of fish with given name

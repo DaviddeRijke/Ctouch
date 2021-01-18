@@ -20,9 +20,9 @@ namespace Persistence.Editor
                 esb.Reset();
             }
 
-            if (GUILayout.Button("Reset"))
+            if (GUILayout.Button("Reset file"))
             {
-                esb.Reset();
+                esb.ResetSaveFile();
             }
             base.OnInspectorGUI();
         }

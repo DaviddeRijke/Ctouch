@@ -36,14 +36,13 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Score/JSONParser.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Persistence/fishData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Persistence/FishData.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/Persistence/FishDataEvent.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Shop/FishType.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Persistence/fishData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Score/JSONParser.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Score/CalculateScore.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Shop/ScoreLabel.cs" />
@@ -52,9 +51,15 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Shop/SpawnableFish.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Shop/Shop.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Shop/MenuButton.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Persistence/Editor/EditorSaveBehaviourEditor.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Persistence/FishPersistence.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Persistence/fishData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/FishDataFolder/FishThoughts.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Persistence/EditorSaveBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/FishDataFolder/Fish.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Persistence/Editor/EditorSaveBehaviourEditor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Persistence/Editor/FishSpawnerEditor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Persistence/FishPersistence.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Persistence/FishSpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Persistence/FishData.cs" />
       </list>
     </option>
   </component>

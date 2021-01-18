@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace FishData
+namespace FishDataFolder
 {
     public class Fish : MonoBehaviour
     {

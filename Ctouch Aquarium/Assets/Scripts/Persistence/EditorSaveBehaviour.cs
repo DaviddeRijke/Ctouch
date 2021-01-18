@@ -1,4 +1,4 @@
-﻿using FishData;
+﻿using FishDataFolder;
 using UnityEngine;
 
 namespace Persistence
@@ -13,13 +13,18 @@ namespace Persistence
         {
             Debug.Log("Saving all fish in scene");
             var fishInScene = FindObjectsOfType<Fish>();
-            Persistence.Save(fishInScene);
+            Persistence.SaveUnsavedFishInScene(fishInScene);
         }
 
         public void Reset()
         {
             if (Persistence == null) return;
-            Persistence.Reset();
+            Persistence.ResetOwnedFish();
+        }
+
+        public void ResetSaveFile()
+        {
+            Persistence.ResetSaveFile();
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using DefaultNamespace;
 
-namespace FishData
+namespace FishDataFolder
 {
     public static class FishThoughts
     {

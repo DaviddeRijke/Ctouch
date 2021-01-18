@@ -8,24 +8,27 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="fishTypes.txt" t="Include" />
-        <e p="ownedFish.txt" t="Include" />
         <e p="Scripts" t="Include">
           <e p="API.cs" t="Include" />
           <e p="API_asset.cs" t="Include" />
           <e p="APIrequest.cs" t="Include" />
-          <e p="FishData" t="Include">
+          <e p="Extensions.cs" t="Include" />
+          <e p="FishDataFolder" t="Include">
             <e p="Fish.cs" t="Include" />
+            <e p="FishThoughts.cs" t="Include" />
             <e p="FishUI.cs" t="Include" />
           </e>
           <e p="New.cs" t="Include" />
           <e p="Persistence" t="Include">
             <e p="Editor" t="Include">
               <e p="EditorSaveBehaviourEditor.cs" t="Include" />
+              <e p="FishSpawnerEditor.cs" t="Include" />
             </e>
             <e p="EditorSaveBehaviour.cs" t="Include" />
             <e p="fishData.cs" t="Include" />
             <e p="FishDataEvent.cs" t="Include" />
             <e p="FishPersistence.cs" t="Include" />
+            <e p="FishSpawner.cs" t="Include" />
           </e>
           <e p="Pollution" t="Include">
             <e p="Goop.cs" t="Include" />
