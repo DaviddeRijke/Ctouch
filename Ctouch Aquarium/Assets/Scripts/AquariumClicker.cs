@@ -20,6 +20,33 @@ public class AquariumClicker : MonoBehaviour
     {
         this.state = state;
     }
+    public void SetClean()
+    {
+        if (this.state == clickState.Clean)
+        {
+            this.state = clickState.None;
+        }
+        else
+        {
+            this.state = clickState.Clean;
+        }
+
+    }
+    public void SetRemove()
+    {
+        if (this.state == clickState.Remove)
+        {
+            this.state = clickState.None;
+        }
+        else
+        {
+            this.state = clickState.Remove;
+        }
+    }
+    public void SetNone()
+    {
+        this.state = clickState.None;
+    }
 
     void Update()
     {
