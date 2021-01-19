@@ -23,16 +23,16 @@ namespace Persistence
             OwnedFish = new List<FishData>();
         }
 
-        public void AddFish(FishType ft, string fishName)
-        {
-            var f = new FishData()
-            {
-                ModelUID = ft.FishModelUID,
-                Name = fishName
-            };
-            OwnedFish.Add(f);
-            OnAddFish.Invoke(f);
-        }
+        // public void AddFish(FishType ft, string fishName)
+        // {
+        //     var f = new FishData()
+        //     {
+        //         ModelUID = ft.FishModelUID,
+        //         Name = fishName
+        //     };
+        //     OwnedFish.Add(f);
+        //     OnAddFish.Invoke(f);
+        // }
 
         public void SaveUnsavedFishInScene(Fish[] fishes)
         {

@@ -14,7 +14,7 @@ namespace Shop
         public Spawn spawn;
         public FishPersistence persistence;
         public UnityEvent OnBuy;
-        private List<Buyable> buyables;
+        private List<BuyableUI> buyables;
         
         public void Start()
         {
@@ -37,7 +37,7 @@ namespace Shop
 
         private void RefreshAvailability()
         {
-            buyables.ForEach(b => b.GetComponentInChildren<Button>().interactable = b.Type.price <= currency.score);
+            buyables.ForEach(b => b.GetComponentInChildren<Button>().interactable = b.Price <= currency.score);
         }
 
         public void Close()
@@ -45,10 +45,10 @@ namespace Shop
             target.SetActive(false);
         }
 
-        public bool BuyFish(Buyable type)
+        public bool BuyFish(BuyableUI type)
         {
-            if (currency.score < type.Type.price) return false;
-            currency.score -= type.Type.price;
+            if (currency.score < type.Price) return false;
+            currency.score -= type.Price;
             OnBuy.Invoke();
             spawn.SpawnFish();
             RefreshAvailability();
@@ -57,7 +57,7 @@ namespace Shop
 
         public void Buy()
         {
-            persistence.AddFish(null, "");
+            //persistence.AddFish(null, "");
             Close();
             spawn.SpawnFish();
         }
