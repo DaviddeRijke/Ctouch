@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -12,7 +11,12 @@ namespace FishDataFolder
         [SerializeField] private List<string> thoughtData = new List<string>();
         private Queue<string> thoughts = new Queue<string>();
 
-        private void OnEnable() => thoughts = new Queue<string>(thoughtData);
+
+        private void OnEnable()
+        {
+            thoughts = new Queue<string>(thoughtData);
+        }
+
         private void OnDisable() => thoughtData = thoughts.ToList();
 
         public void AddThought(string thought)
