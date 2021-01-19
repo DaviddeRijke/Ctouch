@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using FishDataFolder;
 using UnityEngine;
@@ -9,8 +10,13 @@ public class AquariumClicker : MonoBehaviour
 
     private Dictionary<clickState, string> clickTags = new Dictionary<clickState, string>();
 
+    [SerializeField] private ParticleSystem bubbles;
+    private Vector3 defaultPos;
+    private Coroutine bubbleCoroutine;
+
     private void Awake()
     {
+        defaultPos = bubbles.transform.position;
         clickTags.Add(clickState.None, "Fish");
         clickTags.Add(clickState.Remove, "Fish");
         clickTags.Add(clickState.Clean, "Goop");
@@ -20,12 +26,43 @@ public class AquariumClicker : MonoBehaviour
     {
         this.state = state;
     }
+    public void SetClean()
+    {
+        if (this.state == clickState.Clean)
+        {
+            this.state = clickState.None;
+        }
+        else
+        {
+            this.state = clickState.Clean;
+        }
+
+    }
+    public void SetRemove()
+    {
+        if (this.state == clickState.Remove)
+        {
+            this.state = clickState.None;
+        }
+        else
+        {
+            this.state = clickState.Remove;
+        }
+    }
+    public void SetNone()
+    {
+        this.state = clickState.None;
+    }
 
     void Update()
     {
         if (Input.GetMouseButtonUp(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            //show bubbles
+            if (bubbleCoroutine != null) StopCoroutine(bubbleCoroutine);
+                bubbleCoroutine = StartCoroutine(PlaceBubbles(1f, ray.GetPoint(5f)));
 
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
@@ -48,6 +85,14 @@ public class AquariumClicker : MonoBehaviour
             }
         }
     }
+
+    private IEnumerator PlaceBubbles(float duration, Vector3 point)
+    {
+        bubbles.transform.position = point;
+        yield return new WaitForSeconds(duration);
+        bubbles.transform.position = defaultPos;
+    }
+
 
     public enum clickState
     {

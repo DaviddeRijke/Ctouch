@@ -24,7 +24,7 @@ public class JSONParser : MonoBehaviour
         SetFileNameList();
 
         string json = "";
-        string path = Application.dataPath + "/Scripts/Score/" + fileName;
+        string path = Application.dataPath + "/Resources/TimeStamps/" + fileName;
 
         foreach (var file in files)
         {
@@ -76,7 +76,7 @@ public class JSONParser : MonoBehaviour
 
         for (DateTime i = lastDate; i <= dateTime; i = i.AddDays(1))
         {
-            files.Add(Application.dataPath + "/Scripts/Score/" + "DisplayLog_" + i.ToString("yyyy-MM-dd") + ".log");
+            files.Add(Application.dataPath + "/Resources/TimeStamps/" + "DisplayLog_" + i.ToString("yyyy-MM-dd") + ".log");
         }
     }
 }

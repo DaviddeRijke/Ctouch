@@ -57,7 +57,6 @@ public class CalculateScore : MonoBehaviour
         AveragePerHour(data);
         AddScore(CalculateNewScore());
         SaveData();
-        PrintScore();
     }
 
     private void PrintScore()
@@ -70,7 +69,7 @@ public class CalculateScore : MonoBehaviour
         //}
         //text.text = sb.ToString();
 
-        scoreText.text = "Score: " + score.score.ToString();
+        scoreText.text = score.score.ToString();
     }
 
     /// <summary>

@@ -201,6 +201,7 @@ GameObject:
   - component: {fileID: 4298057135859947820}
   - component: {fileID: 4298057135859947823}
   - component: {fileID: 6954634692004935996}
+  - component: {fileID: 3564913556316889393}
   m_Layer: 0
   m_Name: Goop
   m_TagString: Goop
@@ -259,6 +260,61 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3564913556316889393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4298057135859947822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0de6ab704fcb8a146a967f0d3b8c0e9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnSpeed: 1
+  appearCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.0483942
+      outSlope: 0.0483942
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.15073466
+    - serializedVersion: 3
+      time: 0.25
+      value: 1.2
+      inSlope: 0.093151465
+      outSlope: 0.093151465
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.09370752
+    - serializedVersion: 3
+      time: 0.5
+      value: 0.8
+      inSlope: 0.064233765
+      outSlope: 0.064233765
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.27152076
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.044557467
+      outSlope: 0.044557467
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.3477956
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &4298057136188950366
 GameObject:
   m_ObjectHideFlags: 0
