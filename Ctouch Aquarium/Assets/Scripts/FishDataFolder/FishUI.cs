@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace FishDataFolder
@@ -11,11 +10,13 @@ namespace FishDataFolder
     {
         [SerializeField] private Image bubble;
 
-        // [SerializeField] private TMP_InputField nameField;
+        [SerializeField] private RectTransform box;
         [SerializeField] private TextMeshProUGUI nameText;
         [SerializeField] private Button editButton;
         [SerializeField] private TextMeshProUGUI[] thoughtsFields;
 
+        private Vector3 leftOffset;
+        private Vector3 rightOffset;
         private Vector3 defaultPos;
 
         private Fish _fish;
@@ -27,6 +28,9 @@ namespace FishDataFolder
 
         private void Awake()
         {
+            leftOffset = box.localPosition;
+            rightOffset = new Vector3(-box.localPosition.x, box.localPosition.y);
+
             defaultPos = transform.position;
             nameText = GetComponentInChildren<TextMeshProUGUI>();
         }
@@ -36,6 +40,8 @@ namespace FishDataFolder
             if (transform.position != defaultPos)
             {
                 transform.position = _fish.transform.position;
+
+                box.localPosition = _fish.transform.position.x > 0f ? rightOffset : leftOffset;
 
                 if (keyboardActive)
                 {
@@ -98,7 +104,7 @@ namespace FishDataFolder
         {
             _fish = fish;
             input = String.Empty;
-            
+
             nameText.text = fish.fishName;
             Time.timeScale = .2f;
 
