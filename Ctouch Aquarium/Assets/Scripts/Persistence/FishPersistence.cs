@@ -23,17 +23,6 @@ namespace Persistence
             OwnedFish = new List<FishData>();
         }
 
-        // public void AddFish(FishType ft, string fishName)
-        // {
-        //     var f = new FishData()
-        //     {
-        //         ModelUID = ft.FishModelUID,
-        //         Name = fishName
-        //     };
-        //     OwnedFish.Add(f);
-        //     OnAddFish.Invoke(f);
-        // }
-
         public void SaveUnsavedFishInScene(Fish[] fishes)
         {
             foreach (Fish f in fishes)
@@ -86,59 +75,5 @@ namespace Persistence
             OwnedFish = container.dataList;
             Debug.Log("Loaded " + OwnedFish.Count);
         }
-
-        //removes first occurence of fish with given name
-        public bool RemoveFishByName(string name)
-        {
-            var match = OwnedFish.Find(f => f.Name == name);
-            if (OwnedFish.Contains(match))
-            {
-                OnRemoveFish.Invoke(match);
-                OwnedFish.Remove(match);
-                return true;
-            }
-            return false;
-        }
-
-        #region crud
-        //removes first occurence of fish with given model
-        public bool RemoveFishByModel(string model)
-        {
-            var match = OwnedFish.Find(f => f.ModelUID == model);
-            if (OwnedFish.Contains(match))
-            {
-                OnRemoveFish.Invoke(match);
-                OwnedFish.Remove(match);
-                return true;
-            }
-            return false;
-        }
-
-        // public void SaveFishTypes()
-        // {
-        //     List<FishType> fishTypes = Resources.LoadAll<FishType>(PathToFishFolder).ToList();
-        //     Debug.Log("Saving " + fishTypes.Count);
-        //     string json = JsonUtility.ToJson(fishTypes);
-        //     string json2 = JsonUtility.ToJson(fishTypes.ToArray());
-        //     Debug.Log(json);
-        //     Debug.Log(json2);
-        //     File.WriteAllText(Application.dataPath + FishTypeDataFile, json);
-        // }
-        //
-        // public void LoadFishTypes()
-        // {
-        //     if (File.Exists(Application.dataPath + FishTypeDataFile))
-        //     {
-        //         string json = File.ReadAllText(Application.dataPath + FishTypeDataFile);
-        //         Debug .Log(json);
-        //         var fishTypes = JsonUtility.FromJson<List<FishType>>(json);
-        //         Debug.Log("Loading " + fishTypes.Count);
-        //     }
-        //     else
-        //     {
-        //         Debug.Log("fishType file not found");
-        //     }
-        //}
-        #endregion
     }
 }

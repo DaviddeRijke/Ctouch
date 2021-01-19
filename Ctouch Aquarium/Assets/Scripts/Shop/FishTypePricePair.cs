@@ -21,16 +21,21 @@ namespace Shop
 
     public static class FishTypePricePairExtensions
     {
-        public static string FishTypePricePairDataFile = "/availableFish.txt";
+        private static string FishTypePricePairDataFile = "/availableFish.txt";
         
         public static List<FishTypePricePair> LoadFishTypePricePairs()
         {
+            string json;
             if (!File.Exists(Application.persistentDataPath + FishTypePricePairDataFile))
             {
-                Debug.Log("not found");
-                return null;
+                Debug.Log("using default");
+                json = ((TextAsset)Resources.Load("defaultShopFish", typeof(TextAsset))).text;
             }
-            string json = File.ReadAllText(Application.persistentDataPath + FishTypePricePairDataFile);
+            else
+            {
+                json = File.ReadAllText(Application.persistentDataPath + FishTypePricePairDataFile);
+            }
+
             var container = JsonUtility.FromJson<ListContainer<FishTypePricePair>>(json);
             var r = container.dataList;
             Debug.Log("Loaded " + r.Count);
