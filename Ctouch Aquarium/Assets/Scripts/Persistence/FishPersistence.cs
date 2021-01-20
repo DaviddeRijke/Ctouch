@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using FishDataFolder;
-using Shop;
 using UnityEngine;
 
 namespace Persistence

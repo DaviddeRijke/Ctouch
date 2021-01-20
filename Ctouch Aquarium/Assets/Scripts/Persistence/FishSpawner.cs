@@ -1,6 +1,4 @@
-﻿using System;
-using System.Security.Cryptography.X509Certificates;
-using FishDataFolder;
+﻿using FishDataFolder;
 using Shop;
 using UnityEngine;
 using Random = UnityEngine.Random;

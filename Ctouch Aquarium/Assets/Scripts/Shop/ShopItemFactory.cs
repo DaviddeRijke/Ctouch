@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEditor.PackageManager.UI;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.UI;
 using static Shop.FishTypePricePairExtensions;
 
 namespace Shop

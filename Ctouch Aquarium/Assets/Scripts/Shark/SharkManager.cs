@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using DefaultNamespace;
 using FishDataFolder;
 using UnityEngine;
 using Random = UnityEngine.Random;

@@ -1,9 +1,5 @@
-﻿using System.Collections.Generic;
-using Persistence;
+﻿using Persistence;
 using Shop.Menu;
-using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.UI;
 
 namespace Shop
 {
