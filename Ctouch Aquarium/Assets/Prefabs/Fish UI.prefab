@@ -842,6 +842,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubble: {fileID: 8726077420182972746}
+  box: {fileID: 8726077420978717577}
   nameText: {fileID: 1223266948}
   editButton: {fileID: 2517975042638022437}
   thoughtsFields:
