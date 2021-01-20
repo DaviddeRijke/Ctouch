@@ -2714,6 +2714,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8974676985266564542, guid: 23edd8f79d21cd14c903549d53bcea1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974676985266564542, guid: 23edd8f79d21cd14c903549d53bcea1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974676985266564542, guid: 23edd8f79d21cd14c903549d53bcea1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 478347832}
+    - target: {fileID: 8974676985266564542, guid: 23edd8f79d21cd14c903549d53bcea1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974676985266564542, guid: 23edd8f79d21cd14c903549d53bcea1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetClean
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974676985266564542, guid: 23edd8f79d21cd14c903549d53bcea1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AquariumClicker, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974676985266564542, guid: 23edd8f79d21cd14c903549d53bcea1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8974676986531288374, guid: 23edd8f79d21cd14c903549d53bcea1b, type: 3}
       propertyPath: m_Name
       value: Shop UI
@@ -3077,6 +3105,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4267327587920038, guid: 005549c911025b64f84ab6ac9d8a62d6, type: 3}
   m_PrefabInstance: {fileID: 1926664025}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &478347832 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7530952229557610956, guid: 181034196fb58ac45a28595bbd088b18, type: 3}
+  m_PrefabInstance: {fileID: 883211381}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91dcaf0a55d39004cb79b35cd4f95175, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &490910316
 PrefabInstance:
   m_ObjectHideFlags: 0
