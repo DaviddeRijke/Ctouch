@@ -32,8 +32,6 @@ public class CalculateScore : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //score = new Score();
-
         //update score;
         InvokeRepeating("UpdateScore", 0f, updateTime);
     }
@@ -54,19 +52,6 @@ public class CalculateScore : MonoBehaviour
         AveragePerHour(data);
         AddScore(CalculateNewScore());
         SaveData();
-    }
-
-    private void PrintScore()
-    {
-        //print out average backlight per hour
-        //StringBuilder sb = new StringBuilder();
-        //foreach (float averageBacklight in averageBacklight)
-        //{
-        //    sb.AppendLine(averageBacklight.ToString());
-        //}
-        //text.text = sb.ToString();
-
-        scoreText.text = score.score.ToString();
     }
 
     /// <summary>

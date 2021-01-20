@@ -11,7 +11,7 @@ public class JSONParser : MonoBehaviour
     private string fileName = "DisplayLog_2020-12-14.log";
     private List<string> files = new List<string>();
     private Data data;
-
+    private string path = "C:/Windows/SysWOW64/config/systemprofile/AppData/Local/CTOUCH/";
 
     /// <summary>
     /// reads timestamps and settings from json file
@@ -24,7 +24,6 @@ public class JSONParser : MonoBehaviour
         SetFileNameList();
 
         string json = "";
-        string path = Application.dataPath + "/Resources/TimeStamps/" + fileName;
 
         foreach (var file in files)
         {
@@ -76,7 +75,7 @@ public class JSONParser : MonoBehaviour
 
         for (DateTime i = lastDate; i <= dateTime; i = i.AddDays(1))
         {
-            files.Add(Application.dataPath + "/Resources/TimeStamps/" + "DisplayLog_" + i.ToString("yyyy-MM-dd") + ".log");
+            files.Add(path + "DisplayLog_" + i.ToString("yyyy-MM-dd") + ".log");
         }
     }
 }
