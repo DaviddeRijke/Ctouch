@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using UnityEditor.PackageManager.UI;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -6,24 +8,31 @@ using static Shop.FishTypePricePairExtensions;
 
 namespace Shop
 {
-        public class BuyableFactory : MonoBehaviour
+        public class ShopItemFactory : MonoBehaviour
         {
-                public string PathToFolder = "SO/FishTypes";
-                public BuyableUI Prefab;
+                public ShopItem Prefab;
                 public Transform Parent;
-                
-                public List<BuyableUI> Load()
+
+                public MenuWindow Target;
+
+                private void Awake()
+                {
+                        Load();
+                }
+
+                public void Load()
                 {
                         var res2 = LoadFishTypePricePairs();
-                        if (res2 == null) return null;
-                        var ps = new List<BuyableUI>();
+                        var ps = new List<ShopItem>();
                         foreach (var ftpp in res2)
                         {
                                 var p = Instantiate(Prefab, Parent);
                                 p.nameText.text = ftpp.ModelUID;
                                 p.priceText.text = ftpp.Price.ToString();
+                                p.ModelUID = ftpp.ModelUID;
+                                p.Price = ftpp.Price;
+                                p.Window = Target;
                         }
-                        return ps;
                 }
         }
 }

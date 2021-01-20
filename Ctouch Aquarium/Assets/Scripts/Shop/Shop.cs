@@ -1,65 +1,37 @@
 ﻿using System.Collections.Generic;
 using Persistence;
+using Shop.Menu;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace Shop
 {
-    public class Shop : MonoBehaviour
+    public class Shop : MenuWindow
     {
-        public Score currency;
-        public bool OrderByName;
-        public GameObject target;
-        public Spawn spawn;
-        public FishPersistence persistence;
-        public UnityEvent OnBuy;
-        private List<BuyableUI> buyables;
+        public Score score; //Valuta
+        public bool OrderByName; //if false, order by value ascending (default)
         
-        public void Start()
+        public FishSpawner spawn;
+
+        public void BuyShopItem(ShopItem shopItem)
         {
-            buyables = GetComponent<BuyableFactory>().Load();
-            foreach (var buyable in buyables)
+            if (score.score < shopItem.Price)
             {
-                var btn = buyable.GetComponentInChildren<Button>();
-                btn.onClick.AddListener(() => BuyFish(buyable));
+                InvokeRefresh();
+                return;
             }
-        }
+            
+            score.score -= shopItem.Price;
+            spawn.SpawnNewFish(shopItem.ModelUID, "undefined");;
 
-        public bool IsActive => target.activeSelf;
-    
-        public void Open()
-        {
-            target.SetActive(true);
-            RefreshAvailability();
-
-        }
-
-        private void RefreshAvailability()
-        {
-            buyables.ForEach(b => b.GetComponentInChildren<Button>().interactable = b.Price <= currency.score);
-        }
-
-        public void Close()
-        {
-            target.SetActive(false);
-        }
-
-        public bool BuyFish(BuyableUI type)
-        {
-            if (currency.score < type.Price) return false;
-            currency.score -= type.Price;
-            OnBuy.Invoke();
-            spawn.SpawnFish();
-            RefreshAvailability();
-            return true;
-        }
-
-        public void Buy()
-        {
-            //persistence.AddFish(null, "");
+            InvokeRefresh();
             Close();
-            spawn.SpawnFish();
+        }
+        
+        public override bool Validate(MenuItem i)
+        {
+            return ((ShopItem) i).Price <= score.score;
         }
     }
 }
