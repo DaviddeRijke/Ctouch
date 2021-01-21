@@ -1,4 +1,5 @@
-﻿using Persistence;
+﻿using System;
+using Persistence;
 using Shop.Menu;
 
 namespace Shop
@@ -9,6 +10,11 @@ namespace Shop
         public bool OrderByName; //if false, order by value ascending (default)
         
         public FishSpawner spawn;
+
+        private void OnEnable()
+        {
+            InvokeRefresh();
+        }
 
         public void BuyShopItem(ShopItem shopItem)
         {

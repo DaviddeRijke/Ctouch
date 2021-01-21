@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using static Shop.FishTypePricePairExtensions;
 
@@ -9,7 +10,7 @@ namespace Shop
                 public ShopItem Prefab;
                 public Transform Parent;
 
-                public MenuWindow Target;
+                public Shop Target;
 
                 private void Awake()
                 {
@@ -20,7 +21,7 @@ namespace Shop
                 {
                         var res2 = LoadFishTypePricePairs();
                         var ps = new List<ShopItem>();
-                        foreach (var ftpp in res2)
+                        foreach (var ftpp in res2.OrderBy(r => r.Price))
                         {
                                 var p = Instantiate(Prefab, Parent);
                                 p.nameText.text = ftpp.ModelUID;
