@@ -12,7 +12,7 @@ namespace Persistence
         public const string OwnedFishDataFile = "/ownedFish.txt";
         public const string PathToFishFolder = "FishTypes";
         
-        [SerializeField] private List<FishData> OwnedFish;
+        [SerializeField] public List<FishData> OwnedFish;
 
         public FishDataEvent OnRemoveFish = new FishDataEvent();
         public FishDataEvent OnAddFish = new FishDataEvent();

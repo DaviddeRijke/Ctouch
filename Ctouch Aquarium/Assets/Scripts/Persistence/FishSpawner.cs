@@ -1,5 +1,6 @@
 ﻿using FishDataFolder;
 using Shop;
+using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -13,7 +14,8 @@ namespace Persistence
         public BoidManager BoidManager;
 
         public Transform FishParentTransform;
-        
+        public List<Fish> fishObjects = new List<Fish>();
+
         /// <summary>
         /// Let op: fish is nu het containerobject ipv alleen het object met het model! fish wordt dus geregistreerd bij de manager
         /// </summary>
@@ -22,18 +24,23 @@ namespace Persistence
             FishData[] fd = Persistence.Load();
             foreach (var f in fd)
             {
-                var fish = SpawnFishObject(f.ModelUID, f.Name, f.LocalRotation);
+                var fish = SpawnFishObject(f.ModelUID, f.Name, f.Rotation);
                 var transform1 = fish.transform;
                 transform1.position = f.Position;
                 transform1.rotation = f.Rotation;
-                
-                if(fish.GetComponent<Boid>() == null) Debug.LogWarning("No boid component found on this object!");
+
+                if (fish.GetComponent<Boid>() == null) Debug.LogWarning("No boid component found on this object!");
                 BoidManager.AddObject(fish);
+
+                if (f.IsEaten)
+                {
+                    fish.transform.parent.gameObject.SetActive(false);
+                }
             }
         }
 
         //overload for when rotationOffset is irrelevant
-        private GameObject SpawnFishObject(string ModelUID, string nameOfFish){ return SpawnFishObject(ModelUID, nameOfFish, Quaternion.identity);}
+        public GameObject SpawnFishObject(string ModelUID, string nameOfFish) { return SpawnFishObject(ModelUID, nameOfFish, Quaternion.identity); }
         private GameObject SpawnFishObject(string ModelUID, string nameOfFish, Quaternion rotationOffset)
         {
             var loadedModel = Resources.Load($"{PathToPrefabFolder}/{ModelUID}", typeof(GameObject));
@@ -42,7 +49,10 @@ namespace Persistence
             var fish = Instantiate(loadedModel as GameObject, boidContainer.transform);
             fish.name = loadedModel.name;
             boidContainer.name = fish.AddComponent<Fish>().fishName = nameOfFish;
-            fish.transform.rotation = rotationOffset;
+            fish.transform.parent.rotation = rotationOffset;
+            fish.transform.Rotate(0f, 90f, 0f);
+
+            fishObjects.Add(fish.GetComponent<Fish>());
 
             /*@Kelvin, heb een ifstatement gemaakt die dit skipt als deze elementen niet bestaan.
              Dit is in principe alleen waar voor de niet-vis objecten (mossel, zeester etc)
