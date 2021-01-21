@@ -9,10 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 449cf3c3b6be84643bd8426e7d30aa38, type: 3}
-  m_Name: Score
+  m_Script: {fileID: 11500000, guid: cc7d17a36c55d19469293dbc92b9f897, type: 3}
+  m_Name: Shark
   m_EditorClassIdentifier: 
-  score: 1574
-  lastTimeStamp: 19-1-2021 08:34:00
-  lastAverage: 70
-  averageBacklightUsage: []
+  fish:
+  - name: Hein
+    modelName: Butterfly_fish_prefab
+  isAlive: 1
+  spawnTime: 20-1-2021 20:35:30
+  hoursAlive: 2

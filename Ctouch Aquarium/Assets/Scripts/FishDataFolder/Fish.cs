@@ -7,6 +7,7 @@ namespace FishDataFolder
     public class Fish : MonoBehaviour
     {
         public string fishName;
+        public bool isEaten;
 
         [SerializeField] private List<string> thoughtData = new List<string>();
         private Queue<string> thoughts = new Queue<string>();

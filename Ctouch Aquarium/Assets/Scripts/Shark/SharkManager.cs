@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using FishDataFolder;
+using Persistence;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -10,19 +12,42 @@ public class SharkManager : MonoBehaviour
     [SerializeField] private int spawnChange = 1;
     [SerializeField] private int eatRate = 1;
     [SerializeField] private BoidManager boidManager;
+    [SerializeField] private FishPersistence fishPersistence;
+    [SerializeField] private FishSpawner fishSpawner;
 
-    private Shark shark;
+    [SerializeField] private Shark shark;
     private GameObject sharkObject;
+    private List<Fish> notEatenFishDataList = new List<Fish>();
+    private List<Fish> fishObjects = new List<Fish>();
 
     public void Start()
     {
-        shark = new Shark();
         shark.LoadShark();
+        fishObjects = fishSpawner.fishObjects;
 
         if (shark.isAlive)
         {
             sharkObject = Instantiate(sharkPrefab, new Vector3(0, 3, 0), Quaternion.identity);
             sharkObject.GetComponent<SharkObjectScript>().SetSharkManager(this);
+
+            UpdateShark();
+        }
+        else
+        {
+            notEatenFishDataList = fishObjects;
+        }
+    }
+
+    public void UpdateShark()
+    {
+        fishObjects = fishSpawner.fishObjects;
+
+        foreach (var fish in fishObjects)
+        {
+            if (!fish.GetComponent<Fish>().isEaten)
+            {
+                notEatenFishDataList.Add(fish);
+            }
         }
     }
 
@@ -48,11 +73,13 @@ public class SharkManager : MonoBehaviour
         //random change to spawn a shark
         if (Random.Range(0, spawnChange) == 0)
         {
+            UpdateShark();
             sharkObject = Instantiate(sharkPrefab, new Vector3(0, 3, 0), Quaternion.identity);
             sharkObject.GetComponent<SharkObjectScript>().SetSharkManager(this);
             boidManager.AddObject(sharkObject);
             shark.isAlive = true;
             shark.spawnTime = DateTime.Now.ToString();
+            fishObjects = fishSpawner.fishObjects;
             shark.SaveShark();
 
             FishThoughts.MakeFishThink(FindObjectsOfType<Fish>().ToList(), ThoughtEnum.SharkArived);
@@ -62,26 +89,46 @@ public class SharkManager : MonoBehaviour
     /// <summary>
     /// shark eats fish
     /// </summary>
-    /// <param name="fish"></param>
-    public void EatFish(string[] fish)
+    public void EatFish()
     {
+        UpdateShark();
         DateTime currentTime = DateTime.Now;
-        int duration =
-            (currentTime.Subtract(DateTime.Parse(shark.spawnTime, null,
-                System.Globalization.DateTimeStyles.RoundtripKind))).Hours;
+        DateTime spawnTime = DateTime.Parse(shark.spawnTime, null,
+                System.Globalization.DateTimeStyles.RoundtripKind);
+        int duration = (int)(currentTime.Subtract(spawnTime)).TotalHours;
+        int fishEatenCount = duration / eatRate;
 
-        if (duration >= shark.hoursAlive + eatRate)
+        if (fishEatenCount > notEatenFishDataList.Count)
         {
-            //add random fish from array
-            int r = Random.Range(0, fish.Length - 1);
-            shark.fish.Add(fish[r]);
-
-            //todo remove fish from aquarium
-
-            shark.hoursAlive = duration;
-
-            shark.SaveShark();
+            fishEatenCount = notEatenFishDataList.Count;
         }
+
+        if (notEatenFishDataList.Count > 0)
+        {
+            for (int i = 0; i < fishEatenCount; i++)
+            {
+                //add random fish from array
+                int r = Random.Range(0, notEatenFishDataList.Count);
+                Fish fish = notEatenFishDataList[r];
+
+                //add to shark
+                shark.fish.Add(new SharkEatenData(fish.fishName, fish.name));
+
+                //remove from eaten list
+                notEatenFishDataList.RemoveAt(r);
+                fish.GetComponent<Fish>().isEaten = true;
+
+                //remove fish from aquarium
+                boidManager.RemoveObject(fish.transform.parent.gameObject);
+                fishSpawner.fishObjects.Remove(fish);
+                Destroy(fish.transform.parent.gameObject);
+
+            }
+        }
+
+        shark.hoursAlive = duration;
+
+        shark.SaveShark();
     }
 
     /// <summary>
@@ -91,10 +138,14 @@ public class SharkManager : MonoBehaviour
     {
         if (shark.fish.Count > 0)
         {
-            //todo releaseFish()
-
             //remove the first fish in the shark
-            shark.fish.Remove(shark.fish[0]);
+            SharkEatenData eatenFish = shark.fish[0];
+
+            //spawn fish in aquarium
+            GameObject fish = fishSpawner.SpawnFishObject(eatenFish.modelName, eatenFish.name);
+            boidManager.AddObject(fish);
+            fish.GetComponentInChildren<Fish>().isEaten = false;
+            shark.fish.RemoveAt(0);
         }
         else
         {

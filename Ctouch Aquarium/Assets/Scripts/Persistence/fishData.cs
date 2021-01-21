@@ -10,6 +10,7 @@ namespace Persistence
     {
         public string ModelUID;
         public string Name;
+        public bool IsEaten;
 
         public Vector3 Position;
         public Quaternion Rotation;
@@ -29,9 +30,10 @@ namespace Persistence
             var transform = f.transform;
             var parent = transform.parent;
             Position = parent.position;
-            Rotation = parent.rotation;
+            Rotation = parent.localRotation;
             LocalPosition = transform.position;
-            LocalRotation = transform.rotation;
+            LocalRotation = transform.localRotation;
+            IsEaten = f.isEaten;
         }
     }
 

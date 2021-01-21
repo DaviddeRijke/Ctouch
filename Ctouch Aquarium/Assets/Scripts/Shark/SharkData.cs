@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using Persistence;
+using System.Collections.Generic;
 
 [System.Serializable]
 public class SharkData
 {
-    //todo
-    public List<string> fish = new List<string>();
+    public List<SharkEatenData> fish = new List<SharkEatenData>();
 
     public bool isAlive = false;
     public string spawnTime = "2020-01-01T00:00:00+01:00";
