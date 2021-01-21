@@ -40,7 +40,7 @@ namespace Persistence
         }
 
         //overload for when rotationOffset is irrelevant
-        public GameObject SpawnFishObject(string ModelUID, string nameOfFish) { return SpawnFishObject(ModelUID, nameOfFish, Quaternion.identity); }
+        private GameObject SpawnFishObject(string ModelUID, string nameOfFish) { return SpawnFishObject(ModelUID, nameOfFish, Quaternion.identity); }
         private GameObject SpawnFishObject(string ModelUID, string nameOfFish, Quaternion rotationOffset)
         {
             var loadedModel = Resources.Load($"{PathToPrefabFolder}/{ModelUID}", typeof(GameObject));
@@ -50,7 +50,6 @@ namespace Persistence
             fish.name = loadedModel.name;
             boidContainer.name = fish.AddComponent<Fish>().fishName = nameOfFish;
             fish.transform.parent.rotation = rotationOffset;
-            fish.transform.Rotate(0f, 90f, 0f);
 
             fishObjects.Add(fish.GetComponent<Fish>());
 

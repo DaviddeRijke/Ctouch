@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using FishDataFolder;
@@ -20,6 +21,7 @@ public class SharkManager : MonoBehaviour
     private List<Fish> notEatenFishDataList = new List<Fish>();
     private List<Fish> eatenFishDataList = new List<Fish>();
     private List<Fish> fishObjects = new List<Fish>();
+    private float eatTime = 0f;
 
     public void Start()
     {
@@ -137,6 +139,31 @@ public class SharkManager : MonoBehaviour
     }
 
     /// <summary>
+    /// eat fish when colliding with it
+    /// </summary>
+    /// <param name="f"></param>
+    public void CollideWithFish(GameObject f)
+    {
+        if (eatTime == 0)
+        {
+            Fish fish = f.GetComponent<Fish>();
+
+            //add to shark
+            eatenFishDataList.Add(fish);
+
+            ////remove from eaten list
+            notEatenFishDataList.Remove(fish);
+            fish.GetComponent<Fish>().isEaten = true;
+
+            //remove fish from aquarium
+            fish.transform.parent.gameObject.SetActive(false);
+
+            //for not eating fish immediately
+            StartCoroutine(Timer());
+        }
+    }
+
+    /// <summary>
     /// action on tapping shark
     /// </summary>
     public void tapOnShark()
@@ -153,6 +180,9 @@ public class SharkManager : MonoBehaviour
             eatenFish.isEaten = false;
             eatenFishDataList.RemoveAt(0);
             notEatenFishDataList.Add(eatenFish);
+
+            //for not eating fish immediately
+            StartCoroutine(Timer());
         }
         else
         {
@@ -165,5 +195,19 @@ public class SharkManager : MonoBehaviour
         }
 
         shark.SaveShark();
+    }
+
+    /// <summary>
+    /// timer for eating fish
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator Timer()
+    {
+        eatTime = 10;
+        while (eatTime > 0f)
+        {
+            eatTime -= Time.deltaTime;
+            yield return null;
+        }
     }
 }

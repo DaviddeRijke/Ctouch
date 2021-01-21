@@ -16,4 +16,12 @@ public class SharkObjectScript : MonoBehaviour
             sharkManager.tapOnShark();
         }
     }
+
+    void OnCollisionEnter(Collision collider)
+    {
+        if (collider.gameObject.tag.Equals("Fish"))
+        {
+            sharkManager.CollideWithFish(collider.gameObject);
+        }
+    }
 }
