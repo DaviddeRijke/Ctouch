@@ -27,6 +27,7 @@ namespace Shop
                                 p.nameText.text = ftpp.ModelUID;
                                 p.priceText.text = ftpp.Price.ToString();
                                 p.ModelUID = ftpp.ModelUID;
+                                p.GetComponent<Icon>().Import(ftpp.ModelUID);
                                 p.Price = ftpp.Price;
                                 p.Window = Target;
                         }
