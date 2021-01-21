@@ -18,6 +18,7 @@ public class SharkManager : MonoBehaviour
     [SerializeField] private Shark shark;
     private GameObject sharkObject;
     private List<Fish> notEatenFishDataList = new List<Fish>();
+    private List<Fish> eatenFishDataList = new List<Fish>();
     private List<Fish> fishObjects = new List<Fish>();
 
     public void Start()
@@ -41,12 +42,18 @@ public class SharkManager : MonoBehaviour
     public void UpdateShark()
     {
         fishObjects = fishSpawner.fishObjects;
+        notEatenFishDataList = new List<Fish>();
+        eatenFishDataList = new List<Fish>();
 
         foreach (var fish in fishObjects)
         {
             if (!fish.GetComponent<Fish>().isEaten)
             {
                 notEatenFishDataList.Add(fish);
+            }
+            else
+            {
+                eatenFishDataList.Add(fish);
             }
         }
     }
@@ -112,16 +119,14 @@ public class SharkManager : MonoBehaviour
                 Fish fish = notEatenFishDataList[r];
 
                 //add to shark
-                shark.fish.Add(new SharkEatenData(fish.fishName, fish.name));
+                eatenFishDataList.Add(fish);
 
-                //remove from eaten list
+                ////remove from eaten list
                 notEatenFishDataList.RemoveAt(r);
                 fish.GetComponent<Fish>().isEaten = true;
 
                 //remove fish from aquarium
-                boidManager.RemoveObject(fish.transform.parent.gameObject);
-                fishSpawner.fishObjects.Remove(fish);
-                Destroy(fish.transform.parent.gameObject);
+                fish.transform.parent.gameObject.SetActive(false);
 
             }
         }
@@ -136,16 +141,18 @@ public class SharkManager : MonoBehaviour
     /// </summary>
     public void tapOnShark()
     {
-        if (shark.fish.Count > 0)
+        if (eatenFishDataList.Count > 0)
         {
             //remove the first fish in the shark
-            SharkEatenData eatenFish = shark.fish[0];
+            Fish eatenFish = eatenFishDataList[0];
 
             //spawn fish in aquarium
-            GameObject fish = fishSpawner.SpawnFishObject(eatenFish.modelName, eatenFish.name);
-            boidManager.AddObject(fish);
-            fish.GetComponentInChildren<Fish>().isEaten = false;
-            shark.fish.RemoveAt(0);
+            GameObject fish = eatenFish.transform.parent.gameObject;
+            fish.transform.position = sharkObject.transform.position;
+            fish.SetActive(true);
+            eatenFish.isEaten = false;
+            eatenFishDataList.RemoveAt(0);
+            notEatenFishDataList.Add(eatenFish);
         }
         else
         {

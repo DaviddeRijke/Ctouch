@@ -12,9 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc7d17a36c55d19469293dbc92b9f897, type: 3}
   m_Name: Shark
   m_EditorClassIdentifier: 
-  fish:
-  - name: Hein
-    modelName: Butterfly_fish_prefab
   isAlive: 1
-  spawnTime: 20-1-2021 20:35:30
+  spawnTime: 21-1-2021 11:38:57
   hoursAlive: 2

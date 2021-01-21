@@ -24,15 +24,17 @@ namespace Persistence
             FishData[] fd = Persistence.Load();
             foreach (var f in fd)
             {
-                if (!f.IsEaten)
-                {
-                    var fish = SpawnFishObject(f.ModelUID, f.Name, f.LocalRotation);
-                    var transform1 = fish.transform;
-                    transform1.position = f.Position;
-                    transform1.rotation = f.Rotation;
+                var fish = SpawnFishObject(f.ModelUID, f.Name, f.LocalRotation);
+                var transform1 = fish.transform;
+                transform1.position = f.Position;
+                transform1.rotation = f.Rotation;
 
-                    if (fish.GetComponent<Boid>() == null) Debug.LogWarning("No boid component found on this object!");
-                    BoidManager.AddObject(fish);
+                if (fish.GetComponent<Boid>() == null) Debug.LogWarning("No boid component found on this object!");
+                BoidManager.AddObject(fish);
+
+                if (f.IsEaten)
+                {
+                    fish.transform.parent.gameObject.SetActive(false);
                 }
             }
         }
