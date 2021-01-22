@@ -26,29 +26,10 @@ public class AquariumClicker : MonoBehaviour
     {
         this.state = state;
     }
-    public void SetClean()
-    {
-        if (this.state == clickState.Clean)
-        {
-            this.state = clickState.None;
-        }
-        else
-        {
-            this.state = clickState.Clean;
-        }
 
-    }
-    public void SetRemove()
-    {
-        if (this.state == clickState.Remove)
-        {
-            this.state = clickState.None;
-        }
-        else
-        {
-            this.state = clickState.Remove;
-        }
-    }
+    public void SetClean(bool clean) => state = clean ? clickState.Clean : clickState.None;
+    public void SetRemove(bool remove) => state = remove ? clickState.Remove : clickState.None;
+
     public void SetNone()
     {
         this.state = clickState.None;
@@ -62,7 +43,7 @@ public class AquariumClicker : MonoBehaviour
 
             //show bubbles
             if (bubbleCoroutine != null) StopCoroutine(bubbleCoroutine);
-                bubbleCoroutine = StartCoroutine(PlaceBubbles(1f, ray.GetPoint(5f)));
+            bubbleCoroutine = StartCoroutine(PlaceBubbles(1f, ray.GetPoint(5f)));
 
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
