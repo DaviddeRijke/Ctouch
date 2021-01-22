@@ -71,6 +71,7 @@ GameObject:
   - component: {fileID: 4199028302884646}
   - component: {fileID: 95031340412861106}
   - component: {fileID: -4392747556855782930}
+  - component: {fileID: -4586906533783983038}
   m_Layer: 0
   m_Name: Yellowtang_prefab
   m_TagString: Fish
@@ -126,6 +127,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-4586906533783983038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106387401300592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b5d62bd77ef6734897cafd7b2608016, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fishName: Gele zeilvindoktersvis
 --- !u!1 &1130600215200198
 GameObject:
   m_ObjectHideFlags: 0

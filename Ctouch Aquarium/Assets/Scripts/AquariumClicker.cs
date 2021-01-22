@@ -47,7 +47,6 @@ public class AquariumClicker : MonoBehaviour
 
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
-                Debug.Log(hit.transform.gameObject.name);
                 if (hit.collider.CompareTag(clickTags[state]))
                 {
                     switch (state)

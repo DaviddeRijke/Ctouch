@@ -573,6 +573,7 @@ GameObject:
   - component: {fileID: 4208393894064998}
   - component: {fileID: 95795399454770498}
   - component: {fileID: -6426755771845660405}
+  - component: {fileID: -3529024078573775934}
   m_Layer: 0
   m_Name: Atlantic_cod_prefab
   m_TagString: Fish
@@ -628,6 +629,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-3529024078573775934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870853889962878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b5d62bd77ef6734897cafd7b2608016, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fishName: Kabeljauw
 --- !u!1 &1880626918078848
 GameObject:
   m_ObjectHideFlags: 0
