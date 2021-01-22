@@ -1,5 +1,4 @@
-﻿using System;
-using FishDataFolder;
+﻿using FishDataFolder;
 using Shop;
 using System.Collections.Generic;
 using UnityEngine;

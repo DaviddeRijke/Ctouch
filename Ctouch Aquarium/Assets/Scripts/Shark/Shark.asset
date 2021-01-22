@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Shark
   m_EditorClassIdentifier: 
   isAlive: 1
-  spawnTime: 21-1-2021 11:38:57
-  hoursAlive: 2
+  spawnTime: 22-1-2021 20:41:59
+  hoursAlive: 0

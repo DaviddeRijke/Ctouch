@@ -1,6 +1,4 @@
-﻿using Persistence;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu(fileName = "Shark", menuName = "SharkData")]
 public class Shark : ScriptableObject
