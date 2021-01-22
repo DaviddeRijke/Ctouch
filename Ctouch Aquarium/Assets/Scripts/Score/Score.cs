@@ -2,14 +2,18 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(fileName = "Score", menuName = "ScoreData")]
-public class Score : ScriptableObject
+public class Score : MonoBehaviour
 {
     public int score = 0;
     public string lastTimeStamp = "01/01/2021 00:00:00 AM";
 
     public double lastAverage = 0;
     public List<double> averageBacklightUsage = new List<double>();
+
+    private void Start()
+    {
+        LoadScore();
+    }
 
     public void SaveScore()
     {

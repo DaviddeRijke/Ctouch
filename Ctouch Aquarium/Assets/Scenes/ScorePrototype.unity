@@ -227,6 +227,7 @@ GameObject:
   - component: {fileID: 189058012}
   - component: {fileID: 189058015}
   - component: {fileID: 189058016}
+  - component: {fileID: 189058013}
   m_Layer: 0
   m_Name: ScoreManager
   m_TagString: Untagged
@@ -252,7 +253,7 @@ MonoBehaviour:
   text: {fileID: 0}
   scoreText: {fileID: 629890163}
   JSONParser: {fileID: 189058015}
-  score: {fileID: 11400000, guid: 8ec616b271867c444a4da291bd9fcbf1, type: 2}
+  score: {fileID: 189058013}
   scoreCurve:
     serializedVersion: 2
     m_Curve:
@@ -344,6 +345,22 @@ MonoBehaviour:
   backlightMuteScore: 15
   offTimeScore: 20
   updateTime: 5
+--- !u!114 &189058013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189058011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 449cf3c3b6be84643bd8426e7d30aa38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  lastTimeStamp: 01/01/2021 00:00:00 AM
+  lastAverage: 0
+  averageBacklightUsage: []
 --- !u!4 &189058014
 Transform:
   m_ObjectHideFlags: 0
@@ -370,7 +387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e08508ad3a4caa438b2479f6d5f3326, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreData: {fileID: 11400000, guid: 8ec616b271867c444a4da291bd9fcbf1, type: 2}
+  scoreData: {fileID: 189058013}
 --- !u!114 &189058016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -383,7 +400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7afbdf93adaee9d4c88879d25799faf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreData: {fileID: 11400000, guid: 8ec616b271867c444a4da291bd9fcbf1, type: 2}
+  scoreData: {fileID: 189058013}
   AverageTreshold: 60
   ChangeInAverageTreshold: 20
   sharkManager: {fileID: 1005117622}
@@ -981,10 +998,18 @@ PrefabInstance:
       propertyPath: p
       value: 
       objectReference: {fileID: 11400000, guid: 450c8726a8a0edb44a0f9a458821c4ec, type: 2}
+    - target: {fileID: 1944774472922578741, guid: 23edd8f79d21cd14c903549d53bcea1b, type: 3}
+      propertyPath: score
+      value: 
+      objectReference: {fileID: 189058013}
     - target: {fileID: 3511749551421390799, guid: 23edd8f79d21cd14c903549d53bcea1b, type: 3}
       propertyPath: m_VerticalFit
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3953989221577560297, guid: 23edd8f79d21cd14c903549d53bcea1b, type: 3}
+      propertyPath: score
+      value: 
+      objectReference: {fileID: 189058013}
     - target: {fileID: 3983606912357052545, guid: 23edd8f79d21cd14c903549d53bcea1b, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1133,6 +1158,10 @@ PrefabInstance:
       propertyPath: m_ChildControlHeight
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8974676987065746775, guid: 23edd8f79d21cd14c903549d53bcea1b, type: 3}
+      propertyPath: score
+      value: 
+      objectReference: {fileID: 189058013}
     - target: {fileID: 8974676987065746775, guid: 23edd8f79d21cd14c903549d53bcea1b, type: 3}
       propertyPath: spawn
       value: 
@@ -1379,6 +1408,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1005117623}
   - component: {fileID: 1005117622}
+  - component: {fileID: 1005117624}
   m_Layer: 0
   m_Name: SharkManager
   m_TagString: Untagged
@@ -1404,7 +1434,7 @@ MonoBehaviour:
   boidManager: {fileID: 1581573728}
   fishPersistence: {fileID: 11400000, guid: 450c8726a8a0edb44a0f9a458821c4ec, type: 2}
   fishSpawner: {fileID: 1529865714}
-  shark: {fileID: 11400000, guid: c1054bb71f823a84aace503af6fc9ced, type: 2}
+  shark: {fileID: 1005117624}
 --- !u!4 &1005117623
 Transform:
   m_ObjectHideFlags: 0
@@ -1419,6 +1449,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1005117624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005117621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc7d17a36c55d19469293dbc92b9f897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAlive: 0
+  spawnTime: 2020-01-01T00:00:00+01:00
+  hoursAlive: 0
 --- !u!1 &1086807806
 GameObject:
   m_ObjectHideFlags: 0
@@ -1669,7 +1714,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 808dbd6f5a754e9481ce89b32582cd0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: {fileID: 11400000, guid: 8ec616b271867c444a4da291bd9fcbf1, type: 2}
+  score: {fileID: 189058013}
   Prefix: 
 --- !u!1 &1529865712
 GameObject:

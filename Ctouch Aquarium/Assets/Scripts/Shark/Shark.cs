@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "Shark", menuName = "SharkData")]
-public class Shark : ScriptableObject
+public class Shark : MonoBehaviour
 {
     public bool isAlive = false;
     public string spawnTime = "2020-01-01T00:00:00+01:00";
