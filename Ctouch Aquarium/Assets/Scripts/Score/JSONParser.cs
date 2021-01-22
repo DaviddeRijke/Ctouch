@@ -136,10 +136,8 @@ public static class DateTimeConverter
         DateTime dateValue;
         long dtLong;
 
-        var formatStrings = new string[] { "MM/dd/yyyy hh:mm:ss tt", "yyyy-MM-dd hh:mm:ss", "dd-MM-yyyy hh:mm:ss", "MM/dd/yyyy hh:mm:ss" };
+        var formatStrings = new string[] { "MM/dd/yyyy hh:mm:ss tt", "yyyy-MM-dd hh:mm:ss", "dd-MM-yyyy hh:mm:ss", "MM/dd/yyyy hh:mm:ss", "d-M-yyyy H:mm:ss" };
         if (DateTime.TryParseExact(dateTime, formatStrings, new CultureInfo("en-US"), DateTimeStyles.None, out dateValue))
-            return dateValue;
-        else if (DateTime.TryParseExact(dateTime, formatStrings, new CultureInfo("nl-NL"), DateTimeStyles.None, out dateValue))
             return dateValue;
         else if (DateTime.TryParse(dateTime, out dateValue))
             return dateValue;
