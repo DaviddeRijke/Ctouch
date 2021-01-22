@@ -39,7 +39,6 @@ namespace Shop
             string json;
             if (!File.Exists(Application.persistentDataPath + FishTypePricePairDataFile))
             {
-                Debug.Log("using default");
                 json = ((TextAsset)Resources.Load("defaultShopFish", typeof(TextAsset))).text;
             }
             else
