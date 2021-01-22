@@ -13,6 +13,7 @@ namespace Shop
         private void OnMouseDown()
         {
             fall = false;
+            Destroy(this);
         }
     }
 }
