@@ -51,15 +51,24 @@ public class ValidateScore : MonoBehaviour
         {
             double average = Math.Round(averageScore.Average(), 2);
 
+            int amountGoop = 0;
+            foreach (var score in averageScore)
+            {
+                if(score> AverageTreshold)
+                {
+                    amountGoop++;
+                }
+            }
+
             if(average - ChangeInAverageTreshold >= scoreData.lastAverage)
             {
-                pollutionManager.CreateGoop(1);
+                pollutionManager.CreateGoop(amountGoop);
                 sharkManager.SpawnNewShark();
             }
 
             if(average >= AverageTreshold)
             {
-                pollutionManager.CreateGoop(1);
+                pollutionManager.CreateGoop(amountGoop);
                 sharkManager.SpawnNewShark();
             }
 
