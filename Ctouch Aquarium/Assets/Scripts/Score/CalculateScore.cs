@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class CalculateScore : MonoBehaviour
 {
+    public UnityEvent OnUpdate;
+    
     [SerializeField]
     private Text text;
     [SerializeField]
@@ -52,6 +55,7 @@ public class CalculateScore : MonoBehaviour
         AveragePerHour(data);
         AddScore(CalculateNewScore());
         SaveData();
+        OnUpdate.Invoke();
     }
 
     /// <summary>

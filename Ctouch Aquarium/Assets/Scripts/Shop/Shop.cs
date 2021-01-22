@@ -10,12 +10,19 @@ namespace Shop
         public bool OrderByName; //if false, order by value ascending (default)
         
         public FishSpawner spawn;
+        public CalculateScore ScoreCalculator;
+
+        private void Awake()
+        {
+            ScoreCalculator.OnUpdate.AddListener(InvokeRefresh);
+        }
 
         private void OnEnable()
         {
             InvokeRefresh();
         }
 
+        
         public void BuyShopItem(ShopItem shopItem)
         {
             if (score.score < shopItem.Price)
