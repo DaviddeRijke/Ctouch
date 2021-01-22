@@ -11,7 +11,7 @@ namespace Shop
         public TextMeshProUGUI priceText;
 
         public string ModelUID;
-        public float Price;
+        public int Price;
 
         public Button BuyButton;
 

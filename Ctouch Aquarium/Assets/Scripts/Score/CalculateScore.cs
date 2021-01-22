@@ -17,11 +17,11 @@ public class CalculateScore : MonoBehaviour
     [SerializeField]
     private AnimationCurve scoreCurve;
     [SerializeField]
-    private float sleepTimeScore = 30;
+    private int sleepTimeScore = 30;
     [SerializeField]
-    private float backlightMuteScore = 15;
+    private int backlightMuteScore = 15;
     [SerializeField]
-    private float offTimeScore = 20;
+    private int offTimeScore = 20;
     [SerializeField]
     private float updateTime = 10f;
 
@@ -81,7 +81,7 @@ public class CalculateScore : MonoBehaviour
     {
         List<int> averageBacklightByHour = new List<int>();
         averageBacklight = new List<double>();
-        DateTime lastDate = DateTime.Parse(score.lastTimeStamp, null, System.Globalization.DateTimeStyles.RoundtripKind);
+        DateTime lastDate = DateTimeConverter.ParseRequestDate(score.lastTimeStamp);
         int previousHour = lastDate.Hour;
         int previousDay = lastDate.Day;
 
@@ -118,11 +118,11 @@ public class CalculateScore : MonoBehaviour
     /// </summary>
     private void CalculateSleepTimeScore()
     {
-        DateTime lastDate = DateTime.Parse(score.lastTimeStamp, null, System.Globalization.DateTimeStyles.RoundtripKind);
+        DateTime lastDate = DateTimeConverter.ParseRequestDate(score.lastTimeStamp);
 
         DateTime newLastDate = data.timeStamps[data.timeStamps.Length -1].dateTime;
 
-        if (lastDate != DateTime.Now && newLastDate.Date > lastDate.Date)
+        if (lastDate != DateTime.UtcNow && newLastDate.Date > lastDate.Date)
         {
             if (!data.timeStamps[data.timeStamps.Length - 1].settings.sleepTime.Equals("Off"))
             {
@@ -138,13 +138,13 @@ public class CalculateScore : MonoBehaviour
     {
         for (int i = 1; i < data.timeStamps.Length; i++)
         {
-            DateTime lastDate = DateTime.Parse(data.timeStamps[i].timeStamp, null, System.Globalization.DateTimeStyles.RoundtripKind);
-            DateTime secondLastDate = DateTime.Parse(data.timeStamps[i - 1].timeStamp, null, System.Globalization.DateTimeStyles.RoundtripKind);
+            DateTime lastDate = DateTimeConverter.ParseRequestDate(data.timeStamps[i].timeStamp);
+            DateTime secondLastDate = DateTimeConverter.ParseRequestDate(data.timeStamps[i - 1].timeStamp);
 
-            float hours = (float)(lastDate - secondLastDate).TotalHours;
+            int hours = (int)(lastDate - secondLastDate).TotalHours;
             if (hours >= 2)
             {
-                float newScore = 0;
+                int newScore = 0;
 
                 if (hours < 6)
                 {
@@ -164,7 +164,7 @@ public class CalculateScore : MonoBehaviour
     /// calculates score based on average backlight per hour
     /// </summary>
     /// <returns></returns>
-    private float CalculateNewScore()
+    private int CalculateNewScore()
     {
         float points = 0;
 
@@ -181,7 +181,7 @@ public class CalculateScore : MonoBehaviour
     /// <summary>
     /// adds score locally
     /// </summary>
-    private void AddScore(float points)
+    private void AddScore(int points)
     {
         score.score += points;
     }
