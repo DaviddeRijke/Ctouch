@@ -49,7 +49,7 @@ namespace Persistence
             var fish = Instantiate(loadedModel as GameObject, boidContainer.transform);
             fish.name = loadedModel.name;
             boidContainer.name = fish.AddComponent<Fish>().fishName = nameOfFish;
-            fish.transform.parent.rotation = rotationOffset;
+            fish.transform.Rotate(0f,90f,0f);
 
             fishObjects.Add(fish.GetComponent<Fish>());
 
@@ -60,8 +60,8 @@ namespace Persistence
             var smr = fish.GetComponentInChildren<SkinnedMeshRenderer>();
             var boxCollider = fish.GetComponent<BoxCollider>();
             if (smr == null || boxCollider == null) return boidContainer;
-            Bounds bounds = fish.GetComponentInChildren<SkinnedMeshRenderer>().bounds;
-            boxCollider.size = new Vector3(bounds.extents.z, bounds.extents.y, bounds.extents.x);
+            Bounds bounds = smr.localBounds;
+            boxCollider.size = new Vector3(bounds.extents.y, bounds.extents.x, bounds.extents.z);
 
             return boidContainer;
         }

@@ -38,7 +38,7 @@ public class Boid : MonoBehaviour {
         this.settings = settings;
 
         position = cachedTransform.position;
-        forward = cachedTransform.forward;
+        forward = transform.rotation * cachedTransform.forward;
 
         float startSpeed = (settings.minSpeed + settings.maxSpeed) / 2;
         velocity = transform.forward * startSpeed;
