@@ -1,6 +1,7 @@
 ﻿using Pollution;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using UnityEngine;
 
@@ -24,19 +25,19 @@ public class ValidateScore : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lastTimeStamp = DateTime.Parse(scoreData.lastTimeStamp, null, System.Globalization.DateTimeStyles.RoundtripKind);
+        lastTimeStamp = DateTimeConverter.ParseRequestDate(scoreData.lastTimeStamp);
 
         //check performance every hour;
         InvokeRepeating("Validate", 0f, updateTime);
     }
-
+    
     /// <summary>
     /// checks the performance of the average backlight usage
     /// </summary>
     public void Validate()
     {
-        lastTimeStamp = DateTime.Parse(scoreData.lastTimeStamp, null, System.Globalization.DateTimeStyles.RoundtripKind);
-        DateTime timeStamp = DateTime.Now;
+        lastTimeStamp = DateTimeConverter.ParseRequestDate(scoreData.lastTimeStamp);
+        DateTime timeStamp = DateTime.UtcNow;
 
         //return if score hasn't been updated in the current hour
         if(lastTimeStamp.Date == timeStamp.Date && lastTimeStamp.Hour == timeStamp.Hour -1)

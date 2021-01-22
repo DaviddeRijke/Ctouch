@@ -3,7 +3,7 @@
 [System.Serializable]
 public class ScoreObject
 {
-    public float score = 0;
+    public int score = 0;
     public string lastTimeStamp = "2000-01-01T00:00:00+01:00";
 
     public double lastAverage = 0;

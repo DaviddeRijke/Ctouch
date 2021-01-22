@@ -5,8 +5,8 @@ using UnityEngine.Events;
 [CreateAssetMenu(fileName = "Score", menuName = "ScoreData")]
 public class Score : ScriptableObject
 {
-    public float score = 0;
-    public string lastTimeStamp = "2020-01-01T00:00:00+01:00";
+    public int score = 0;
+    public string lastTimeStamp = "01/01/2021 00:00:00 AM";
 
     public double lastAverage = 0;
     public List<double> averageBacklightUsage = new List<double>();
