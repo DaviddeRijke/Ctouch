@@ -49,7 +49,6 @@ namespace Persistence
             var fish = Instantiate(loadedModel as GameObject, boidContainer.transform);
             fish.name = loadedModel.name;
             boidContainer.name = fish.AddComponent<Fish>().fishName = nameOfFish;
-            fish.transform.Rotate(0f,90f,0f);
 
             fishObjects.Add(fish.GetComponent<Fish>());
 

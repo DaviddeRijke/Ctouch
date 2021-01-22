@@ -27,6 +27,7 @@ namespace Shop
         private void OnMouseDown()
         {
             onDone.Invoke(param);
+            Destroy(this);
         }
     }
 }
