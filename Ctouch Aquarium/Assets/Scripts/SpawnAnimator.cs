@@ -14,10 +14,10 @@ public class SpawnAnimator : MonoBehaviour
 
     private IEnumerator Appear(float duration)
     {
-        yield return new WaitForSeconds(Random.Range(.1f, .5f));
         scale = transform.localScale;
-
         transform.localScale = Vector3.zero;
+
+        yield return new WaitForSeconds(Random.Range(.1f, .5f));
 
         for (float timePassed = 0; timePassed < duration; timePassed += Time.deltaTime)
         {
