@@ -144,7 +144,7 @@ public class SharkManager : MonoBehaviour
     /// <param name="f"></param>
     public void CollideWithFish(GameObject f)
     {
-        if (eatTime == 0)
+        if (eatTime <= 0)
         {
             Fish fish = f.GetComponent<Fish>();
 
