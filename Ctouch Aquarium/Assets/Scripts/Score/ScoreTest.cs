@@ -8,7 +8,7 @@ public class ScoreTest : MonoBehaviour
 
     public void OnClick()
     {
-        DateTime lastDate = DateTime.Parse(score.lastTimeStamp, null, System.Globalization.DateTimeStyles.RoundtripKind);
+        DateTime lastDate = DateTimeConverter.ParseRequestDate(score.lastTimeStamp);
         lastDate = lastDate.AddDays(-1);
         score.lastTimeStamp = lastDate.ToString();
     }
