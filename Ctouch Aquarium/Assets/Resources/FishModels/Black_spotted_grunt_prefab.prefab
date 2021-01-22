@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 1902250607499626319}
   m_Layer: 0
   m_Name: Black_spotted_grunt_prefab
-  m_TagString: Untagged
+  m_TagString: Fish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

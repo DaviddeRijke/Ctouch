@@ -575,7 +575,7 @@ GameObject:
   - component: {fileID: -6426755771845660405}
   m_Layer: 0
   m_Name: Atlantic_cod_prefab
-  m_TagString: Untagged
+  m_TagString: Fish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
