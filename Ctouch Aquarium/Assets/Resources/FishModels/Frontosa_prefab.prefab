@@ -226,6 +226,7 @@ GameObject:
   - component: {fileID: 4646478648035814}
   - component: {fileID: 95365674546194926}
   - component: {fileID: 7924303941176402807}
+  - component: {fileID: -455474340765556760}
   m_Layer: 0
   m_Name: Frontosa_prefab
   m_TagString: Fish
@@ -281,6 +282,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-455474340765556760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536911975133754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b5d62bd77ef6734897cafd7b2608016, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fishName: Baars
 --- !u!1 &1539932941398360
 GameObject:
   m_ObjectHideFlags: 0

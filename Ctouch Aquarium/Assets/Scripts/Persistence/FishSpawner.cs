@@ -47,7 +47,7 @@ namespace Persistence
             if (loadedModel == null) return null;
             var boidContainer = Instantiate(BoidPrefab, FishParentTransform);
             var fish = Instantiate(loadedModel as GameObject, boidContainer.transform);
-            fish.name = loadedModel.name;
+            nameOfFish = fish.GetComponent<FishName>().fishName;
             boidContainer.name = fish.AddComponent<Fish>().fishName = nameOfFish;
 
             fishObjects.Add(fish.GetComponent<Fish>());

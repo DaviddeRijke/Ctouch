@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 4143540963671840}
   - component: {fileID: 95421958464419488}
   - component: {fileID: -3053870509763784150}
+  - component: {fileID: -7235893847451298313}
   m_Layer: 0
   m_Name: Carp_prefab
   m_TagString: Fish
@@ -98,6 +99,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-7235893847451298313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107190881394354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b5d62bd77ef6734897cafd7b2608016, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fishName: Karper
 --- !u!1 &1211061992569204
 GameObject:
   m_ObjectHideFlags: 0
