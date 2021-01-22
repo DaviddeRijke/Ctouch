@@ -49,7 +49,6 @@ namespace Shop
 
             var container = JsonUtility.FromJson<ListContainer<FishTypePricePair>>(json);
             var r = container.dataList;
-            Debug.Log("Loaded " + r.Count);
             return container.dataList;
         }
     }

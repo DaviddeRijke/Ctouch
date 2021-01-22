@@ -2,7 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using FishDataFolder;
+using Shop;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class AquariumClicker : MonoBehaviour
 {
@@ -14,6 +16,8 @@ public class AquariumClicker : MonoBehaviour
     private Vector3 defaultPos;
     private Coroutine bubbleCoroutine;
 
+    public FishEvent OnRemove = new FishEvent();
+    
     private void Awake()
     {
         defaultPos = bubbles.transform.position;
@@ -55,7 +59,8 @@ public class AquariumClicker : MonoBehaviour
                             hit.transform.GetComponent<Fish>().ShowTooltip();
                             break;
                         case clickState.Remove:
-                            throw new NotImplementedException();
+                            var f = hit.transform.GetComponent<Fish>();
+                            if(f!=null) OnRemove.Invoke(f);
                             break;
                         case clickState.Clean:
                             hit.transform.GetComponent<Goop>().Remove();

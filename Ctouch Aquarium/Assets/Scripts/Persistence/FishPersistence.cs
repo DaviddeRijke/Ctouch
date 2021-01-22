@@ -46,6 +46,17 @@ namespace Persistence
                 UnityEditor.AssetDatabase.Refresh();
 #endif
             }
+            ResetOwnedFish();
+        }
+
+        public void SaveFishes(List<Fish> f)
+        {
+            OwnedFish = new List<FishData>();
+            foreach (Fish fish in f)
+            {
+                OwnedFish.Add(new FishData(fish));
+            }
+            SaveOwnedFish();
         }
 
         public void SaveOwnedFish()
@@ -65,7 +76,7 @@ namespace Persistence
             LoadOwnedFish();
             return OwnedFish.ToArray();
         }
-        
+
         public void LoadOwnedFish()
         {
             if (!File.Exists(Application.dataPath + OwnedFishDataFile)) return;

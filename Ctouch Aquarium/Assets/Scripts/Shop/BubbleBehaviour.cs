@@ -9,6 +9,8 @@ namespace Shop
         public bool Active;
         private Action<GameObject> onDone;
         private GameObject param;
+
+        public float minPos = 1;
         public void StartBehaviour(GameObject f, Action<GameObject> onDone)
         {
             this.onDone = onDone;
@@ -18,7 +20,7 @@ namespace Shop
 
         private void Update()
         {
-            if (Active)
+            if (Active && transform.parent.position.y > minPos)
             {
                 transform.parent.position += Speed * Time.deltaTime * Vector3.down;
             }

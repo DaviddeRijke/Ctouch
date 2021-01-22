@@ -11,7 +11,7 @@ namespace Persistence
         public string ModelUID;
         public string Name;
         public bool IsEaten;
-
+        public bool IsInInventory;
         public Vector3 Position;
         public Quaternion Rotation;
         public Vector3 LocalPosition;
@@ -31,9 +31,12 @@ namespace Persistence
             var parent = transform.parent;
             Position = parent.position;
             Rotation = parent.localRotation;
-            LocalPosition = transform.position;
+            LocalPosition = transform.localPosition;
             LocalRotation = transform.localRotation;
             IsEaten = f.isEaten;
+            Debug.Log(f.transform.position);
+            Debug.Log(f.transform.parent.position);
+            IsInInventory = f.isInInventory;
         }
     }
 

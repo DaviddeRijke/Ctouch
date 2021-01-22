@@ -12,6 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f1fe8280bad4a1c853f093203e117d6, type: 3}
   m_Name: Persistence
   m_EditorClassIdentifier: 
-  OwnedFish:
-  - ModelUID: a
-    Name: piet
+  OwnedFish: []

@@ -8,6 +8,7 @@ namespace FishDataFolder
     {
         public string fishName;
         public bool isEaten;
+        public bool isInInventory;
 
         [SerializeField] private List<string> thoughtData = new List<string>();
         private Queue<string> thoughts = new Queue<string>();
