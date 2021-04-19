@@ -1,0 +1,19 @@
+﻿Log Format
+{
+“timeStamps”:[
+  {
+    "timeStamp": "ISO 8601 timestamp",
+    "settings": {
+      "backlight": 0-100,
+      "backlight_mute": 0-1
+    }
+  },  
+  {
+    "timeStamp": "ISO 8601 timestamp",
+    "settings": {
+      "backlight": 0-100,
+      "backlight_mute": 0-1
+    }
+  }
+]
+}
